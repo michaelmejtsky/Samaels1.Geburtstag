@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Samaels 1. Geburtstag</title>
-  <meta name="theme-color" content="#d8c4a8">
+  <meta name="theme-color" content="#d7bea0">
 
   <style>
     * {
@@ -13,23 +13,18 @@
     }
 
     :root {
-      --sand: #d8c4a8;
-      --sand-dark: #9f8262;
-      --cream: #f6eee2;
-      --cream-dark: #eadfce;
-      --warm: #c9a98a;
-      --brown: #5e4a38;
-      --brown-soft: #7a6756;
-      --text: #382f28;
-      --muted: #75695e;
-      --card: rgba(248, 239, 226, .88);
-      --card-strong: rgba(255, 248, 238, .96);
-      --shadow: 0 18px 55px rgba(86, 62, 40, .16);
+      --cream: #f5eadc;
+      --sand: #dcc5a8;
+      --sand-dark: #a78a69;
+      --brown: #594432;
+      --brown-soft: #786657;
+      --text: #372e27;
+      --shadow: 0 18px 55px rgba(76, 53, 35, .15);
     }
 
     html {
       scroll-behavior: smooth;
-      background: #efe4d5;
+      background: #eadcc9;
     }
 
     body {
@@ -44,84 +39,75 @@
         sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 0%, #f8e9d7 0%, transparent 34%),
-        radial-gradient(circle at 90% 12%, #ead8c2 0%, transparent 32%),
-        linear-gradient(180deg, #efe3d3 0%, #f5ece0 45%, #eadbc9 100%);
+        radial-gradient(circle at 15% 0%, #f7e6d2 0%, transparent 34%),
+        radial-gradient(circle at 90% 15%, #dfc4a7 0%, transparent 33%),
+        linear-gradient(180deg, #ead8c4 0%, #f4eadc 42%, #e7d4bd 100%);
     }
 
     body.locked {
       overflow: hidden;
     }
 
-    /* =========================
-       WARMER HINTERGRUND
-       ========================= */
-
     .bg {
       position: fixed;
       inset: 0;
       z-index: 0;
-      pointer-events: none;
       overflow: hidden;
+      pointer-events: none;
     }
 
     .blob {
       position: absolute;
       border-radius: 999px;
       filter: blur(90px);
-      opacity: .28;
+      opacity: .23;
     }
 
-    .blob.a {
+    .blob.one {
       width: 300px;
       height: 300px;
-      background: #e5c9a8;
-      top: -60px;
       left: -80px;
+      top: -50px;
+      background: #e2c39f;
     }
 
-    .blob.b {
-      width: 320px;
-      height: 320px;
-      background: #d9b99c;
-      top: 260px;
-      right: -100px;
+    .blob.two {
+      width: 330px;
+      height: 330px;
+      right: -90px;
+      top: 280px;
+      background: #d8b596;
     }
 
-    .blob.c {
-      width: 280px;
-      height: 280px;
-      background: #ead7bc;
-      bottom: 80px;
+    .blob.three {
+      width: 270px;
+      height: 270px;
       left: 12%;
+      bottom: 40px;
+      background: #e5ccb0;
     }
 
-    /* =========================
+    /* =========================================================
        STARTSCREEN
-       ========================= */
+       ========================================================= */
 
     .start-screen {
       position: fixed;
       inset: 0;
       z-index: 10000;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-
       padding:
-        calc(22px + env(safe-area-inset-top))
-        18px
-        calc(22px + env(safe-area-inset-bottom));
-
+        calc(18px + env(safe-area-inset-top))
+        16px
+        calc(18px + env(safe-area-inset-bottom));
       background:
-        radial-gradient(circle at 20% 0%, #f7e6d1 0%, transparent 38%),
-        radial-gradient(circle at 100% 20%, #dfc3a5 0%, transparent 34%),
-        linear-gradient(160deg, #ead8c3 0%, #f4eadd 50%, #e7d4bf 100%);
-
+        radial-gradient(circle at 20% 0%, #f6e3cc, transparent 38%),
+        radial-gradient(circle at 100% 20%, #ddbea0, transparent 35%),
+        linear-gradient(160deg, #e8d3ba, #f4e9dc 52%, #e4cfb7);
       transition:
         opacity .65s ease,
         visibility .65s ease;
@@ -136,80 +122,50 @@
     .start-card {
       width: min(680px, 100%);
       margin: auto;
-
-      padding: 34px 26px 30px;
-
+      padding: 32px 24px 28px;
       text-align: center;
-
-      border-radius: 34px;
-
+      border-radius: 32px;
       background:
         linear-gradient(
           180deg,
-          rgba(255, 248, 238, .94),
-          rgba(246, 235, 220, .91)
+          rgba(255, 247, 236, .96),
+          rgba(240, 224, 204, .94)
         );
-
-      border: 1px solid rgba(116, 88, 61, .10);
-
-      box-shadow:
-        0 22px 65px rgba(78, 54, 34, .18);
-
-      backdrop-filter: blur(16px);
+      border: 1px solid rgba(101, 72, 46, .09);
+      box-shadow: 0 22px 65px rgba(74, 50, 31, .20);
     }
 
     .start-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-
-      margin-bottom: 14px;
-
-      padding: 9px 14px;
-
+      gap: 7px;
+      margin-bottom: 13px;
+      padding: 8px 13px;
       border-radius: 999px;
-
-      background: rgba(203, 169, 132, .18);
-
+      background: rgba(166, 126, 87, .12);
       color: var(--brown);
-
       font-size: 12px;
       font-weight: 800;
-
-      letter-spacing: .2px;
     }
 
     .start-number {
-      width: 82px;
-      height: 82px;
-
-      margin: 0 auto 17px;
-
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-
       border-radius: 50%;
-
-      background:
-        linear-gradient(180deg, #fdf5ea, #ead6bf);
-
+      background: linear-gradient(180deg, #fff7ec, #ead2b5);
       color: var(--brown);
-
-      font-size: 38px;
+      font-size: 37px;
       font-weight: 800;
-
-      border: 1px solid rgba(105, 78, 52, .08);
-
-      box-shadow:
-        0 12px 30px rgba(91, 65, 42, .13);
+      box-shadow: 0 11px 28px rgba(82, 57, 37, .15);
     }
 
     .start-card h1 {
       margin: 0;
-
       color: var(--brown);
-
       font-size: clamp(35px, 7vw, 60px);
       line-height: 1;
       letter-spacing: -1.8px;
@@ -217,55 +173,39 @@
 
     .start-intro {
       max-width: 540px;
-
-      margin: 15px auto 0;
-
+      margin: 14px auto 0;
       color: var(--brown-soft);
-
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     .notice {
-      margin-top: 22px;
-
-      padding: 19px 17px;
-
+      margin-top: 20px;
+      padding: 18px 16px;
       text-align: left;
-
-      border-radius: 22px;
-
+      border-radius: 20px;
       background:
         linear-gradient(
           180deg,
-          rgba(237, 219, 198, .66),
-          rgba(244, 231, 214, .82)
+          rgba(228, 204, 175, .58),
+          rgba(244, 229, 210, .80)
         );
-
-      border: 1px solid rgba(97, 72, 48, .08);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.45);
+      border: 1px solid rgba(83, 59, 38, .08);
     }
 
     .notice-title {
       display: flex;
       align-items: center;
       gap: 8px;
-
-      margin-bottom: 10px;
-
+      margin-bottom: 9px;
       color: var(--brown);
-
       font-size: 16px;
       font-weight: 800;
     }
 
     .notice p {
       margin: 0 0 9px;
-
-      color: #65574b;
-
+      color: #625347;
       font-size: 14px;
       line-height: 1.58;
     }
@@ -275,474 +215,496 @@
     }
 
     .notice strong {
-      color: #493b31;
+      color: #42352b;
     }
 
     .name-box {
-      margin-top: 17px;
+      margin-top: 16px;
       text-align: left;
     }
 
     .name-box label {
       display: block;
       margin-bottom: 7px;
-
-      color: #5c4c3e;
-
+      color: #554538;
       font-size: 13px;
       font-weight: 800;
     }
 
     .name-box input {
       width: 100%;
-
-      padding: 14px 15px;
-
-      border: 1px solid rgba(93, 68, 45, .16);
+      padding: 13px 14px;
+      border: 1px solid rgba(83, 59, 38, .15);
       border-radius: 15px;
-
-      background: #fff8ef;
-
+      background: #fff7ed;
       color: var(--text);
-
       font-size: 16px;
       outline: none;
-
-      box-shadow:
-        0 5px 16px rgba(92, 63, 39, .07);
+      box-shadow: 0 5px 15px rgba(76, 52, 34, .07);
     }
 
     .name-box input:focus {
-      border-color: #b79a79;
-
+      border-color: #b89875;
       box-shadow:
-        0 0 0 4px rgba(183,154,121,.15),
-        0 5px 16px rgba(92,63,39,.07);
+        0 0 0 4px rgba(184, 152, 117, .15),
+        0 5px 15px rgba(76, 52, 34, .07);
     }
 
     .privacy-note {
-      margin-top: 8px;
-
-      color: #837367;
-
-      font-size: 11px;
+      margin-top: 7px;
+      color: #7c6d61;
+      font-size: 10.5px;
       line-height: 1.45;
     }
 
     .thanks {
-      margin-top: 16px;
-
-      color: #65574b;
-
+      margin-top: 15px;
+      color: #625347;
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     .names {
       display: block;
-
       margin-top: 5px;
-
       color: var(--brown);
-
       font-weight: 800;
     }
 
     .enter-btn {
       width: 100%;
-
-      margin-top: 19px;
-
-      padding: 15px 18px;
-
+      margin-top: 17px;
+      padding: 15px 17px;
       border: 0;
       border-radius: 999px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #765b42,
-          #5e4633
-        );
-
+      background: linear-gradient(180deg, #76593f, #58412f);
       color: white;
-
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
-
       cursor: pointer;
-
-      box-shadow:
-        0 12px 28px rgba(72, 49, 31, .24);
-
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease;
-    }
-
-    .enter-btn:hover {
-      transform: translateY(-2px);
-
-      box-shadow:
-        0 15px 34px rgba(72,49,31,.29);
+      box-shadow: 0 12px 28px rgba(66, 44, 28, .25);
     }
 
     .name-error {
       min-height: 18px;
-
-      margin-top: 9px;
-
-      color: #a1423c;
-
+      margin-top: 8px;
+      color: #a54640;
       font-size: 13px;
       font-weight: 700;
     }
 
-    /* =========================
-       MAIN
-       ========================= */
+    /* =========================================================
+       FEIER-OVERLAY
+       ========================================================= */
+
+    .celebration-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,.30), transparent 35%),
+        linear-gradient(180deg, #f1d9bb 0%, #f6ead9 45%, #e7c7a5 100%);
+      opacity: 0;
+      transition: opacity .6s ease, visibility .6s ease;
+      visibility: hidden;
+    }
+
+    .celebration-screen.active {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .celebration-screen.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .celebration-card {
+      position: relative;
+      z-index: 3;
+      width: min(760px, calc(100% - 30px));
+      padding: 34px 22px;
+      text-align: center;
+      border-radius: 30px;
+      background: rgba(255, 248, 239, .82);
+      border: 1px solid rgba(111, 82, 52, .10);
+      box-shadow: 0 24px 70px rgba(72, 48, 28, .20);
+      backdrop-filter: blur(10px);
+    }
+
+    .celebration-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(166,126,87,.12);
+      color: var(--brown);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .celebration-title {
+      margin: 0;
+      color: var(--brown);
+      font-size: clamp(30px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -1.3px;
+    }
+
+    .celebration-text {
+      max-width: 560px;
+      margin: 14px auto 0;
+      color: #67574a;
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .celebration-sub {
+      margin-top: 13px;
+      color: #866f5a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .skip-btn {
+      margin-top: 20px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #76593f, #5b4330);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(71, 49, 31, .22);
+    }
+
+    .effects-layer {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .confetti {
+      position: absolute;
+      top: -40px;
+      width: 10px;
+      height: 18px;
+      opacity: .95;
+      animation-name: confettiFall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      transform: rotate(0deg);
+      border-radius: 3px;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(115vh) rotate(720deg);
+        opacity: .9;
+      }
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -160px;
+      width: 58px;
+      height: 74px;
+      border-radius: 50% 50% 48% 48%;
+      animation-name: balloonFloat;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      box-shadow: inset -10px -12px 0 rgba(0,0,0,.08);
+    }
+
+    .balloon::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -42px;
+      width: 2px;
+      height: 44px;
+      background: rgba(98, 78, 60, .45);
+      transform: translateX(-50%);
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 10px;
+      height: 10px;
+      background: inherit;
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 2px;
+    }
+
+    @keyframes balloonFloat {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-52vh) translateX(10px) rotate(4deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) translateX(-16px) rotate(-5deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================================================
+       SEITENINHALT
+       ========================================================= */
 
     .page {
       position: relative;
       z-index: 1;
-
-      width: min(1400px, calc(100% - 16px));
-
+      width: min(1400px, calc(100% - 14px));
       margin: auto;
-
       padding-bottom: 35px;
     }
 
-    /* =========================
-       HERO
-       ========================= */
-
     .hero {
       padding:
-        calc(8px + env(safe-area-inset-top))
+        calc(7px + env(safe-area-inset-top))
         0
-        10px;
+        8px;
     }
 
     .hero-photo {
       position: relative;
-
-      min-height: min(75vh, 800px);
-
-      overflow: hidden;
-
+      min-height: min(73vh, 790px);
       display: flex;
       align-items: flex-end;
-
-      border-radius: 30px;
-
-      background:
-        linear-gradient(145deg, #cdb295, #8e725a);
-
+      overflow: hidden;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #c9ac8c, #876b54);
       background-size: cover;
       background-position: center;
-
-      box-shadow:
-        0 18px 55px rgba(80, 56, 36, .22);
+      box-shadow: 0 18px 52px rgba(70, 47, 31, .23);
     }
 
     .hero-photo::before {
       content: "";
-
       position: absolute;
       inset: 0;
-
       background:
         linear-gradient(
           180deg,
-          rgba(43, 32, 23, .06) 0%,
-          rgba(43, 32, 23, .12) 35%,
-          rgba(43, 32, 23, .68) 100%
+          rgba(31, 22, 15, .03) 0%,
+          rgba(31, 22, 15, .12) 42%,
+          rgba(31, 22, 15, .72) 100%
         );
-
-      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-
       width: 100%;
-
-      padding: 26px;
-
+      padding: 25px;
       color: white;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-
-      margin-bottom: 13px;
-
-      padding: 9px 14px;
-
+      gap: 7px;
+      margin-bottom: 12px;
+      padding: 8px 13px;
       border-radius: 999px;
-
-      background: rgba(70, 48, 31, .28);
-
-      border: 1px solid rgba(255,255,255,.18);
-
+      background: rgba(61, 42, 27, .35);
+      border: 1px solid rgba(255, 255, 255, .17);
       backdrop-filter: blur(10px);
-
       font-size: 12px;
       font-weight: 700;
     }
 
     .hero h2 {
       margin: 0;
-
       max-width: 760px;
-
-      font-size: clamp(39px, 7vw, 76px);
+      font-size: clamp(40px, 7vw, 76px);
       line-height: .96;
-
       letter-spacing: -2px;
-
-      text-shadow:
-        0 4px 20px rgba(0,0,0,.28);
+      text-shadow: 0 4px 22px rgba(0, 0, 0, .32);
     }
 
     .hero-sub {
       max-width: 700px;
-
       margin-top: 13px;
-
-      color: rgba(255,255,255,.95);
-
+      color: rgba(255, 255, 255, .96);
       font-size: 16px;
-      line-height: 1.65;
-
-      text-shadow:
-        0 2px 12px rgba(0,0,0,.28);
+      line-height: 1.6;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, .30);
     }
 
     .hero-actions {
-      margin-top: 18px;
-
+      margin-top: 17px;
       display: flex;
-      gap: 9px;
       flex-wrap: wrap;
+      gap: 9px;
     }
 
     .hero-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       padding: 12px 16px;
-
-      border-radius: 999px;
       border: 0;
-
+      border-radius: 999px;
       cursor: pointer;
-
+      text-decoration: none;
       font-size: 13px;
       font-weight: 800;
-
-      text-decoration: none;
-
-      box-shadow:
-        0 8px 22px rgba(0,0,0,.18);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .19);
     }
 
     .hero-btn.primary {
-      background: #f8eee2;
-      color: #4b392a;
+      background: #f7ead9;
+      color: #473426;
     }
-
-    .hero-btn.secondary {
-      background: rgba(62,43,28,.35);
-      color: white;
-
-      border: 1px solid rgba(255,255,255,.18);
-
-      backdrop-filter: blur(10px);
-    }
-
-    /* =========================
-       KURZER TEXT
-       ========================= */
 
     .mini-story {
-      margin-top: 10px;
-
-      padding: 18px 18px;
-
+      margin-top: 7px;
+      padding: 17px 16px;
       text-align: center;
-
-      border-radius: 22px;
-
+      border-radius: 20px;
       background:
         linear-gradient(
           180deg,
-          rgba(239, 222, 201, .84),
-          rgba(245, 233, 216, .91)
+          rgba(230, 208, 183, .80),
+          rgba(244, 230, 211, .90)
         );
-
-      border: 1px solid rgba(92,65,41,.08);
-
-      box-shadow:
-        0 12px 34px rgba(76,52,34,.10);
+      border: 1px solid rgba(78, 55, 36, .07);
+      box-shadow: 0 11px 30px rgba(72, 49, 32, .10);
     }
 
     .mini-story h3 {
       margin: 0 0 7px;
-
       color: var(--brown);
-
-      font-size: 22px;
-      letter-spacing: -.4px;
+      font-size: 21px;
     }
 
     .mini-story p {
       max-width: 880px;
-
       margin: auto;
-
-      color: #6b5c50;
-
-      font-size: 15px;
-      line-height: 1.65;
+      color: #66564a;
+      font-size: 14.5px;
+      line-height: 1.6;
     }
 
-    /* =========================
-       GALERIE
-       ========================= */
-
     .gallery-card {
-      margin-top: 10px;
-
-      padding: 12px;
-
-      border-radius: 24px;
-
-      background:
-        rgba(239, 224, 206, .75);
-
-      border: 1px solid rgba(88,62,40,.08);
-
-      box-shadow:
-        0 14px 40px rgba(75,52,35,.11);
-
-      backdrop-filter: blur(14px);
+      margin-top: 7px;
+      padding: 10px;
+      border-radius: 21px;
+      background: rgba(229, 210, 187, .74);
+      border: 1px solid rgba(78, 54, 35, .07);
+      box-shadow: 0 13px 35px rgba(70, 48, 31, .11);
     }
 
     .toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       flex-wrap: wrap;
-
-      gap: 10px;
-
-      margin-bottom: 12px;
-
+      gap: 9px;
+      margin-bottom: 10px;
       padding: 2px;
     }
 
     .toolbar-left {
       display: flex;
       align-items: center;
-      gap: 9px;
       flex-wrap: wrap;
+      gap: 8px;
     }
 
     .toolbar-title {
       color: var(--brown);
-
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 800;
     }
 
     .count {
-      padding: 7px 11px;
-
+      padding: 7px 10px;
       border-radius: 999px;
-
-      background: rgba(255,248,239,.85);
-
-      color: #6b594a;
-
+      background: rgba(255, 246, 235, .82);
+      color: #695647;
       font-size: 12px;
       font-weight: 700;
     }
 
     .hint {
-      color: #7e6f63;
-
+      color: #79695d;
       font-size: 12px;
     }
 
     .loading {
-      min-height: 200px;
-
+      min-height: 190px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      gap: 14px;
-
-      color: #76675a;
+      gap: 13px;
+      color: #756458;
     }
 
     .spinner {
-      width: 42px;
-      height: 42px;
-
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(79, 55, 36, .10);
+      border-top-color: #927456;
       border-radius: 50%;
-
-      border:
-        4px solid rgba(92,65,41,.10);
-
-      border-top-color: #8e725a;
-
       animation: spin .8s linear infinite;
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .gallery {
       display: grid;
-
       grid-template-columns:
-        repeat(auto-fill, minmax(230px, 1fr));
-
-      gap: 8px;
+        repeat(
+          auto-fill,
+          minmax(230px, 1fr)
+        );
+      gap: 7px;
     }
 
     .photo {
       position: relative;
-
       aspect-ratio: 1 / 1;
-
       overflow: hidden;
-
-      border-radius: 16px;
-
-      background: #d9c8b4;
-
+      border-radius: 15px;
+      background: #d5c0a9;
       cursor: pointer;
-
-      box-shadow:
-        0 7px 20px rgba(71,49,33,.10);
-
+      box-shadow: 0 7px 19px rgba(67, 46, 31, .11);
       opacity: 0;
-
       transform: translateY(12px);
-
-      animation:
-        fadeUp .4s ease forwards;
+      animation: fadeUp .38s ease forwards;
     }
 
     @keyframes fadeUp {
@@ -755,13 +717,9 @@
     .photo img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
-
       display: block;
-
-      transition:
-        transform .32s ease;
+      transition: transform .3s ease;
     }
 
     .photo:hover img {
@@ -770,99 +728,71 @@
 
     .photo::after {
       content: "";
-
       position: absolute;
       inset: 0;
-
       pointer-events: none;
-
       background:
         linear-gradient(
           180deg,
-          rgba(0,0,0,0) 52%,
-          rgba(44,30,20,.20) 100%
+          transparent 52%,
+          rgba(41, 28, 19, .20) 100%
         );
     }
 
     .photo-download {
       position: absolute;
-
       right: 8px;
       bottom: 8px;
-
       z-index: 2;
-
-      width: 41px;
-      height: 41px;
-
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-
       border-radius: 50%;
-
-      background: rgba(248,238,225,.95);
-
-      color: #4e3b2c;
-
+      background: rgba(248, 235, 218, .95);
+      color: #463326;
       text-decoration: none;
-
       font-size: 17px;
       font-weight: 800;
-
-      box-shadow:
-        0 5px 16px rgba(55,38,25,.18);
+      box-shadow: 0 5px 15px rgba(53, 36, 24, .18);
     }
 
     .error {
-      padding: 35px 18px;
-
+      padding: 34px 18px;
+      border-radius: 17px;
+      background: #f6e9d9;
+      color: #625347;
       text-align: center;
-
-      border-radius: 18px;
-
-      background: #f7ecdf;
-
-      color: #65574b;
     }
-
-    /* =========================
-       FOOTER
-       ========================= */
 
     .footer {
       padding:
-        26px 18px
+        25px
+        18px
         calc(32px + env(safe-area-inset-bottom));
-
+      color: #75655a;
       text-align: center;
-
-      color: #77695e;
-
       font-size: 13px;
     }
 
     .footer strong {
-      color: #554234;
+      color: #513e30;
     }
 
-    /* =========================
+    /* =========================================================
        LIGHTBOX
-       ========================= */
+       ========================================================= */
 
     .lightbox {
       position: fixed;
       inset: 0;
-
       z-index: 9999;
-
       display: none;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-
-      background:
-        rgba(28, 20, 15, .97);
+      background: rgba(27, 19, 14, .97);
     }
 
     .lightbox.active {
@@ -872,274 +802,255 @@
     .light-image {
       max-width: 94vw;
       max-height: 74vh;
-
       object-fit: contain;
-
-      border-radius: 16px;
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,.4);
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .42);
     }
 
     .close {
       position: fixed;
-
-      top:
-        calc(14px + env(safe-area-inset-top));
-
+      top: calc(14px + env(safe-area-inset-top));
       right: 14px;
-
       width: 48px;
       height: 48px;
-
       border: 0;
       border-radius: 50%;
-
-      background: rgba(255,255,255,.13);
-
+      background: rgba(255, 255, 255, .13);
       color: white;
-
       font-size: 28px;
-
       cursor: pointer;
     }
 
     .arrow {
       position: fixed;
-
       top: 50%;
-
       transform: translateY(-50%);
-
       width: 52px;
       height: 70px;
-
       border: 0;
       border-radius: 17px;
-
-      background: rgba(255,255,255,.11);
-
+      background: rgba(255, 255, 255, .11);
       color: white;
-
       font-size: 34px;
-
       cursor: pointer;
     }
 
-    .left { left: 14px; }
-    .right { right: 14px; }
+    .left {
+      left: 14px;
+    }
+
+    .right {
+      right: 14px;
+    }
 
     .light-bottom {
-      margin-top: 17px;
-
+      margin-top: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-
       gap: 10px;
     }
 
     .counter {
-      color: rgba(255,255,255,.72);
-
+      color: rgba(255, 255, 255, .72);
       font-size: 13px;
       font-weight: 700;
     }
 
     .download-btn {
       padding: 13px 20px;
-
       border-radius: 999px;
-
-      background: #f5e8d8;
-
-      color: #49372a;
-
+      background: #f3e3d0;
+      color: #423024;
       text-decoration: none;
-
       font-weight: 800;
-
-      box-shadow:
-        0 10px 28px rgba(0,0,0,.26);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .28);
     }
 
-    /* =========================
-       MOBILE
-       ========================= */
+    /* =========================================================
+       HANDY
+       ========================================================= */
 
     @media (max-width: 780px) {
-
       .start-screen {
         align-items: flex-start;
         justify-content: center;
-
         padding:
-          calc(12px + env(safe-area-inset-top))
-          10px
-          calc(18px + env(safe-area-inset-bottom));
+          calc(9px + env(safe-area-inset-top))
+          8px
+          calc(16px + env(safe-area-inset-bottom));
       }
 
       .start-card {
-        margin-top: 0;
-        margin-bottom: 10px;
-
-        padding: 22px 15px 20px;
-
-        border-radius: 24px;
+        margin: 0 auto 8px;
+        padding: 18px 13px 17px;
+        border-radius: 21px;
       }
 
       .start-kicker {
-        margin-bottom: 11px;
-        padding: 7px 11px;
-        font-size: 11px;
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        font-size: 10.5px;
       }
 
       .start-number {
-        width: 68px;
-        height: 68px;
-
-        margin-bottom: 12px;
-
-        font-size: 31px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 9px;
+        font-size: 28px;
       }
 
       .start-card h1 {
-        font-size: 36px;
-        letter-spacing: -1.2px;
+        font-size: 33px;
+        letter-spacing: -1px;
       }
 
       .start-intro {
-        margin-top: 11px;
-
-        font-size: 14px;
-        line-height: 1.5;
+        margin-top: 9px;
+        font-size: 13.5px;
+        line-height: 1.45;
       }
 
       .notice {
-        margin-top: 15px;
-
-        padding: 14px 13px;
-
-        border-radius: 17px;
+        margin-top: 12px;
+        padding: 12px 11px;
+        border-radius: 15px;
       }
 
       .notice-title {
-        margin-bottom: 8px;
-
-        font-size: 14px;
+        margin-bottom: 6px;
+        font-size: 13px;
       }
 
       .notice p {
-        font-size: 12.5px;
-        line-height: 1.48;
+        margin-bottom: 6px;
+        font-size: 11.5px;
+        line-height: 1.4;
       }
 
       .name-box {
-        margin-top: 13px;
+        margin-top: 11px;
       }
 
       .name-box input {
-        padding: 12px 13px;
-        font-size: 16px;
+        padding: 11px 12px;
       }
 
       .privacy-note {
-        font-size: 10px;
+        font-size: 9.5px;
       }
 
       .thanks {
-        margin-top: 12px;
-
-        font-size: 13px;
+        margin-top: 10px;
+        font-size: 12px;
       }
 
       .enter-btn {
-        margin-top: 14px;
-
-        padding: 14px 15px;
-
-        font-size: 13px;
+        margin-top: 11px;
+        padding: 12px 13px;
+        font-size: 12px;
       }
 
-      .page {
-        width: calc(100% - 10px);
+      .celebration-card {
+        width: calc(100% - 18px);
+        padding: 24px 14px;
+        border-radius: 22px;
       }
 
-      .hero {
-        padding-top:
-          calc(5px + env(safe-area-inset-top));
+      .celebration-title {
+        font-size: 34px;
       }
 
-      .hero-photo {
-        min-height: 62vh;
-
-        border-radius: 20px;
-      }
-
-      .hero-content {
-        padding: 17px 15px;
-      }
-
-      .hero-badge {
-        margin-bottom: 10px;
-
-        padding: 7px 11px;
-
-        font-size: 11px;
-      }
-
-      .hero h2 {
-        font-size: 41px;
-      }
-
-      .hero-sub {
-        margin-top: 10px;
-
+      .celebration-text {
         font-size: 14px;
         line-height: 1.5;
       }
 
-      .hero-actions {
-        margin-top: 14px;
-      }
-
-      .hero-btn {
-        padding: 11px 14px;
+      .celebration-sub {
         font-size: 12px;
       }
 
+      .skip-btn {
+        margin-top: 16px;
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+
+      .balloon {
+        width: 46px;
+        height: 60px;
+      }
+
+      .page {
+        width: calc(100% - 8px);
+      }
+
+      .hero {
+        padding-top: calc(4px + env(safe-area-inset-top));
+      }
+
+      .hero-photo {
+        min-height: 61vh;
+        border-radius: 18px;
+      }
+
+      .hero-content {
+        padding: 15px 13px;
+      }
+
+      .hero-badge {
+        margin-bottom: 9px;
+        padding: 6px 10px;
+        font-size: 10.5px;
+      }
+
+      .hero h2 {
+        font-size: 39px;
+      }
+
+      .hero-sub {
+        margin-top: 9px;
+        font-size: 13.5px;
+        line-height: 1.45;
+      }
+
+      .hero-actions {
+        margin-top: 12px;
+      }
+
+      .hero-btn {
+        padding: 10px 13px;
+        font-size: 11.5px;
+      }
+
       .mini-story {
-        margin-top: 7px;
-
-        padding: 14px 12px;
-
-        border-radius: 17px;
+        margin-top: 5px;
+        padding: 12px 10px;
+        border-radius: 15px;
       }
 
       .mini-story h3 {
-        font-size: 19px;
+        font-size: 18px;
       }
 
       .mini-story p {
-        font-size: 13.5px;
-        line-height: 1.55;
+        font-size: 12.5px;
+        line-height: 1.5;
       }
 
       .gallery-card {
-        margin-top: 7px;
-
-        padding: 7px;
-
-        border-radius: 17px;
+        margin-top: 5px;
+        padding: 6px;
+        border-radius: 15px;
       }
 
       .toolbar {
-        padding: 3px 3px 1px;
-        margin-bottom: 9px;
+        margin-bottom: 7px;
+        padding: 3px;
       }
 
       .toolbar-title {
-        font-size: 18px;
+        font-size: 17px;
       }
 
       .hint {
@@ -1147,52 +1058,44 @@
       }
 
       .gallery {
-        grid-template-columns:
-          repeat(2, 1fr);
-
-        gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
       }
 
       .photo {
-        border-radius: 10px;
+        border-radius: 9px;
       }
 
       .photo-download {
-        width: 36px;
-        height: 36px;
-
-        right: 6px;
-        bottom: 6px;
-
+        width: 35px;
+        height: 35px;
+        right: 5px;
+        bottom: 5px;
         font-size: 15px;
       }
 
       .light-image {
         max-width: 100vw;
         max-height: 68vh;
-
-        border-radius: 10px;
+        border-radius: 9px;
       }
 
       .arrow {
         top: auto;
-
-        bottom:
-          calc(
-            88px +
-            env(safe-area-inset-bottom)
-          );
-
+        bottom: calc(86px + env(safe-area-inset-bottom));
         transform: none;
-
-        width: 49px;
-        height: 49px;
-
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
       }
 
-      .left { left: 17px; }
-      .right { right: 17px; }
+      .left {
+        left: 16px;
+      }
+
+      .right {
+        right: 16px;
+      }
     }
   </style>
 </head>
@@ -1200,18 +1103,13 @@
 <body class="locked">
 
   <div class="bg">
-    <div class="blob a"></div>
-    <div class="blob b"></div>
-    <div class="blob c"></div>
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
   </div>
-
-  <audio id="music" loop preload="none">
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
 
   <!-- STARTSCREEN -->
   <div id="startScreen" class="start-screen">
-
     <div class="start-card">
 
       <div class="start-kicker">
@@ -1234,7 +1132,6 @@
       </div>
 
       <div class="notice">
-
         <div class="notice-title">
           🔒 Bitte respektiert unseren Wunsch
         </div>
@@ -1262,13 +1159,12 @@
 
         <p>
           Mit dem Öffnen der Galerie bestätigt ihr,
-          diesen Hinweis gelesen zu haben und unseren Wunsch zu respektieren.
+          diesen Hinweis gelesen zu haben
+          und unseren Wunsch zu respektieren.
         </p>
-
       </div>
 
       <div class="name-box">
-
         <label for="guestName">
           Dein Name
         </label>
@@ -1284,7 +1180,6 @@
           Dein Name und der Zeitpunkt der Bestätigung werden ausschließlich gespeichert,
           um die Zustimmung zu diesem Fotohinweis zu dokumentieren.
         </div>
-
       </div>
 
       <div class="thanks">
@@ -1294,30 +1189,48 @@
         </span>
       </div>
 
-      <button
-        id="enterBtn"
-        class="enter-btn">
+      <button id="enterBtn" class="enter-btn">
         ✓ Hinweis gelesen – Erinnerungen ansehen ❤️
       </button>
 
-      <div
-        id="nameError"
-        class="name-error">
+      <div id="nameError" class="name-error"></div>
+    </div>
+  </div>
+
+  <!-- FEIER-OVERLAY -->
+  <div id="celebrationScreen" class="celebration-screen">
+    <div id="effectsLayer" class="effects-layer"></div>
+
+    <div class="celebration-card">
+      <div class="celebration-badge">
+        🎉 Willkommen in meiner Geburtstagsgalerie
       </div>
 
-    </div>
+      <h2 class="celebration-title">
+        Danke, dass ihr meinen<br>
+        1. Geburtstag mit mir gefeiert habt!
+      </h2>
 
+      <div class="celebration-text">
+        Viel Spaß beim Durchschauen der Fotos
+        und beim Mitnehmen unserer schönsten Erinnerungen. 🎈
+      </div>
+
+      <div class="celebration-sub">
+        Die Galerie öffnet sich automatisch in 30 Sekunden.
+      </div>
+
+      <button id="skipCelebrationBtn" class="skip-btn">
+        Jetzt direkt zur Galerie
+      </button>
+    </div>
   </div>
 
   <!-- HAUPTSEITE -->
   <div class="page">
 
     <section class="hero">
-
-      <div
-        id="heroPhoto"
-        class="hero-photo">
-
+      <div id="heroPhoto" class="hero-photo">
         <div class="hero-content">
 
           <div class="hero-badge">
@@ -1330,34 +1243,25 @@
           </h2>
 
           <div class="hero-sub">
-            Ein Jahr voller Lachen, kleiner Abenteuer und großer Gefühle.
-            Danke, dass ihr diesen besonderen Tag mit uns gefeiert habt. ❤️
+            Ein Jahr voller Lachen,
+            kleiner Abenteuer
+            und großer Gefühle.
+            <br>
+            Danke, dass ihr diesen besonderen Tag
+            mit uns gefeiert habt. ❤️
           </div>
 
           <div class="hero-actions">
-
-            <button
-              id="musicBtn"
-              class="hero-btn primary">
-              🎵 Musik abspielen
-            </button>
-
-            <a
-              class="hero-btn secondary"
-              href="#galerie">
+            <a href="#galerie" class="hero-btn primary">
               ↓ Fotos entdecken
             </a>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
 
     <section class="mini-story">
-
       <h3>
         Ein Jahr, das alles verändert hat
       </h3>
@@ -1367,52 +1271,33 @@
         So viele erste Male, kleine Fortschritte und besondere Momente,
         die wir am liebsten für immer festhalten würden.
       </p>
-
     </section>
 
-    <section
-      id="galerie"
-      class="gallery-card">
-
+    <section id="galerie" class="gallery-card">
       <div class="toolbar">
-
         <div class="toolbar-left">
-
           <div class="toolbar-title">
             Unsere schönsten Momente
           </div>
 
-          <div
-            id="count"
-            class="count">
+          <div id="count" class="count">
             Fotos werden geladen …
           </div>
-
         </div>
 
         <div class="hint">
           Foto antippen zum Vergrößern
         </div>
-
       </div>
 
-      <div
-        id="loading"
-        class="loading">
-
+      <div id="loading" class="loading">
         <div class="spinner"></div>
-
         <div>
           Galerie wird geladen …
         </div>
-
       </div>
 
-      <div
-        id="gallery"
-        class="gallery">
-      </div>
-
+      <div id="gallery" class="gallery"></div>
     </section>
 
     <div class="footer">
@@ -1420,31 +1305,13 @@
       <br><br>
       <strong>Alina & Michael</strong>
     </div>
-
   </div>
 
   <!-- LIGHTBOX -->
-  <div
-    id="lightbox"
-    class="lightbox">
-
-    <button
-      class="close"
-      onclick="closeLightbox()">
-      ×
-    </button>
-
-    <button
-      class="arrow left"
-      onclick="previousPhoto()">
-      ‹
-    </button>
-
-    <button
-      class="arrow right"
-      onclick="nextPhoto()">
-      ›
-    </button>
+  <div id="lightbox" class="lightbox">
+    <button class="close" onclick="closeLightbox()">×</button>
+    <button class="arrow left" onclick="previousPhoto()">‹</button>
+    <button class="arrow right" onclick="nextPhoto()">›</button>
 
     <img
       id="lightImage"
@@ -1452,11 +1319,7 @@
       alt="Samaels 1. Geburtstag">
 
     <div class="light-bottom">
-
-      <div
-        id="photoCounter"
-        class="counter">
-      </div>
+      <div id="photoCounter" class="counter"></div>
 
       <a
         id="downloadButton"
@@ -1466,625 +1329,454 @@
         rel="noopener">
         ↓ Foto herunterladen
       </a>
-
     </div>
-
   </div>
 
   <script>
-
     const SCRIPT_BASE_URL =
       'https://script.google.com/a/macros/bsb3100.at/s/AKfycbyjZ3nhws9i3m61IWaA0_AZvt3rlhAoI7gwPBxKi1LeTVx0t-3adoTVX07NHOGZwog/exec';
 
     const PHOTO_API =
-      SCRIPT_BASE_URL +
-      '?api=photos';
+      SCRIPT_BASE_URL + '?api=photos';
+
+    const CELEBRATION_DURATION = 30000;
 
     let photos = [];
     let galleryPhotos = [];
     let titlePhoto = null;
-
     let currentIndex = 0;
     let touchStartX = 0;
-    let musicPlaying = false;
 
-    const music =
-      document.getElementById('music');
+    let celebrationTimer = null;
+    let celebrationFinished = false;
 
-    const musicBtn =
-      document.getElementById('musicBtn');
-
-    const enterBtn =
-      document.getElementById('enterBtn');
-
-    const startScreen =
-      document.getElementById('startScreen');
-
-    const heroPhotoEl =
-      document.getElementById('heroPhoto');
-
+    const enterBtn = document.getElementById('enterBtn');
+    const startScreen = document.getElementById('startScreen');
+    const heroPhotoEl = document.getElementById('heroPhoto');
+    const celebrationScreen = document.getElementById('celebrationScreen');
+    const effectsLayer = document.getElementById('effectsLayer');
+    const skipCelebrationBtn = document.getElementById('skipCelebrationBtn');
 
     function normalizeFileName(name) {
-
       return String(name || '')
         .trim()
         .toLowerCase()
         .replace(/\.[^.]+$/, '');
-
     }
 
-
-    function getSessionId() {
-
-      let id =
-        sessionStorage.getItem(
-          'samaelConsentSession'
-        );
+    function getVisitorId() {
+      let id = localStorage.getItem('samaelVisitorId');
 
       if (!id) {
-
-        if (
-          window.crypto &&
-          crypto.randomUUID
-        ) {
-
-          id =
-            crypto.randomUUID();
-
+        if (window.crypto && crypto.randomUUID) {
+          id = crypto.randomUUID();
         } else {
-
           id =
             Date.now().toString(36) +
-            Math.random()
-              .toString(36)
-              .substring(2);
-
+            Math.random().toString(36).substring(2);
         }
 
-        sessionStorage.setItem(
-          'samaelConsentSession',
-          id
-        );
+        localStorage.setItem('samaelVisitorId', id);
       }
 
       return id;
     }
 
+    function hasConsent() {
+      return (
+        localStorage.getItem('samaelPhotoConsent') === 'yes'
+      );
+    }
+
+    function rememberConsent(name) {
+      localStorage.setItem('samaelPhotoConsent', 'yes');
+      localStorage.setItem('samaelGuestName', name);
+      localStorage.setItem('samaelConsentTime', new Date().toISOString());
+    }
 
     function logConsent(guestName) {
-
-      const sessionId =
-        getSessionId();
+      const sid = getVisitorId();
 
       const url =
         SCRIPT_BASE_URL +
         '?api=consent' +
-        '&sid=' +
-        encodeURIComponent(sessionId) +
-        '&name=' +
-        encodeURIComponent(guestName) +
-        '&_=' +
-        Date.now();
+        '&name=' + encodeURIComponent(guestName) +
+        '&sid=' + encodeURIComponent(sid) +
+        '&_=' + Date.now();
 
-      fetch(
-        url,
-        {
-          method: 'GET',
-          mode: 'no-cors',
-          cache: 'no-store'
-        }
-      )
-      .catch(
-        error =>
-          console.warn(
-            'Zustimmung konnte nicht protokolliert werden:',
-            error
-          )
-      );
+      fetch(url, {
+        method: 'GET',
+        mode: 'no-cors',
+        cache: 'no-store',
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zustimmung Fetch:', error);
+      });
+
+      const tracker = new Image();
+      tracker.src = url + '&fallback=1';
     }
 
+    function initialiseConsentScreen() {
+      if (hasConsent()) {
+        startScreen.classList.add('hide');
+        document.body.classList.remove('locked');
 
-    enterBtn.addEventListener(
-      'click',
-      async function() {
+        const savedName =
+          localStorage.getItem('samaelGuestName');
 
-        const nameInput =
-          document.getElementById('guestName');
-
-        const nameError =
-          document.getElementById('nameError');
-
-        const guestName =
-          nameInput.value.trim();
-
-        if (
-          guestName.length < 2
-        ) {
-
-          nameError.textContent =
-            'Bitte gib deinen Namen ein.';
-
-          nameInput.focus();
-
-          return;
-        }
-
-        nameError.textContent = '';
-
-        logConsent(
-          guestName
-        );
-
-        startScreen
-          .classList
-          .add('hide');
-
-        document.body
-          .classList
-          .remove('locked');
-
-        try {
-
-          await music.play();
-
-          musicPlaying = true;
-
-          musicBtn.textContent =
-            '⏸️ Musik pausieren';
-
-        } catch (error) {
-
-          musicBtn.textContent =
-            '🎵 Musik abspielen';
-
-        }
-
-      }
-    );
-
-
-    musicBtn.addEventListener(
-      'click',
-      async function() {
-
-        if (!musicPlaying) {
-
-          try {
-
-            await music.play();
-
-            musicPlaying = true;
-
-            musicBtn.textContent =
-              '⏸️ Musik pausieren';
-
-          } catch (error) {
-
-            console.error(error);
-
+        if (savedName) {
+          const input = document.getElementById('guestName');
+          if (input) {
+            input.value = savedName;
           }
-
-        } else {
-
-          music.pause();
-
-          musicPlaying = false;
-
-          musicBtn.textContent =
-            '🎵 Musik abspielen';
-
         }
-
       }
-    );
+    }
 
+    function createConfetti() {
+      const colors = [
+        '#f2a9a0',
+        '#f5d37a',
+        '#9dc9f2',
+        '#d2b1ff',
+        '#8fd3a8',
+        '#f7b267',
+        '#ffffff'
+      ];
+
+      for (let i = 0; i < 140; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti';
+
+        const left = Math.random() * 100;
+        const delay = Math.random() * 8;
+        const duration = 5 + Math.random() * 6;
+        const width = 6 + Math.random() * 8;
+        const height = 10 + Math.random() * 14;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.left = left + '%';
+        piece.style.animationDelay = delay + 's';
+        piece.style.animationDuration = duration + 's';
+        piece.style.background = color;
+        piece.style.width = width + 'px';
+        piece.style.height = height + 'px';
+        piece.style.opacity = (0.75 + Math.random() * 0.25).toFixed(2);
+
+        effectsLayer.appendChild(piece);
+      }
+    }
+
+    function createBalloons() {
+      const colors = [
+        '#f4a7a7',
+        '#9fc6f2',
+        '#f8d57b',
+        '#b7dfb2',
+        '#d4b3ff',
+        '#f7b977',
+        '#ff8fa3'
+      ];
+
+      for (let i = 0; i < 16; i++) {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+
+        const left = Math.random() * 100;
+        const delay = Math.random() * 14;
+        const duration = 12 + Math.random() * 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        balloon.style.left = left + '%';
+        balloon.style.animationDelay = delay + 's';
+        balloon.style.animationDuration = duration + 's';
+        balloon.style.background = color;
+
+        effectsLayer.appendChild(balloon);
+      }
+    }
+
+    function buildCelebrationEffects() {
+      effectsLayer.innerHTML = '';
+      createConfetti();
+      createBalloons();
+    }
+
+    function finishCelebration() {
+      if (celebrationFinished) return;
+
+      celebrationFinished = true;
+
+      if (celebrationTimer) {
+        clearTimeout(celebrationTimer);
+        celebrationTimer = null;
+      }
+
+      celebrationScreen.classList.add('hide');
+
+      setTimeout(function() {
+        celebrationScreen.classList.remove('active');
+        celebrationScreen.classList.remove('hide');
+        effectsLayer.innerHTML = '';
+        document.body.classList.remove('locked');
+      }, 650);
+    }
+
+    function startCelebration() {
+      celebrationFinished = false;
+      document.body.classList.add('locked');
+
+      buildCelebrationEffects();
+
+      celebrationScreen.classList.add('active');
+
+      celebrationTimer = setTimeout(function() {
+        finishCelebration();
+      }, CELEBRATION_DURATION);
+    }
+
+    skipCelebrationBtn.addEventListener('click', function() {
+      finishCelebration();
+    });
+
+    enterBtn.addEventListener('click', function() {
+      const nameInput = document.getElementById('guestName');
+      const nameError = document.getElementById('nameError');
+      const guestName = nameInput.value.trim();
+
+      if (guestName.length < 2) {
+        nameError.textContent = 'Bitte gib deinen Namen ein.';
+        nameInput.focus();
+        return;
+      }
+
+      nameError.textContent = '';
+
+      rememberConsent(guestName);
+      logConsent(guestName);
+
+      startScreen.classList.add('hide');
+
+      setTimeout(function() {
+        startCelebration();
+      }, 350);
+    });
 
     function setHeroTitleImage(photo) {
-
       if (!photo) return;
 
       heroPhotoEl.style.backgroundImage =
-        'linear-gradient(180deg, rgba(40,28,19,.04), rgba(40,28,19,.50)), url("' +
+        'linear-gradient(180deg, rgba(30,20,13,.03), rgba(30,20,13,.55)), url("' +
         photo.full +
         '")';
     }
 
-
     async function loadPhotos() {
-
       try {
-
         const response =
-          await fetch(
-            PHOTO_API,
-            {
-              cache: 'no-store'
-            }
-          );
+          await fetch(PHOTO_API, { cache: 'no-store' });
 
         if (!response.ok) {
-
-          throw new Error(
-            'HTTP ' +
-            response.status
-          );
-
+          throw new Error('HTTP ' + response.status);
         }
 
-        photos =
-          await response.json();
+        photos = await response.json();
 
         if (!photos.length) {
-
           renderNoPhotos();
-
           return;
         }
 
         titlePhoto =
-          photos.find(
-            photo =>
-              normalizeFileName(
-                photo.name
-              ) === 'titelbild'
-          ) ||
-          photos[0];
+          photos.find(function(photo) {
+            return normalizeFileName(photo.name) === 'titelbild';
+          }) || photos[0];
 
-        setHeroTitleImage(
-          titlePhoto
-        );
+        setHeroTitleImage(titlePhoto);
 
         galleryPhotos =
-          photos.filter(
-            photo =>
-              photo.id !==
-              titlePhoto.id
-          );
+          photos.filter(function(photo) {
+            return photo.id !== titlePhoto.id;
+          });
 
-        if (
-          !galleryPhotos.length
-        ) {
-
-          galleryPhotos =
-            [titlePhoto];
-
+        if (!galleryPhotos.length) {
+          galleryPhotos = [titlePhoto];
         }
 
         renderPhotos();
 
       } catch (error) {
-
         console.error(error);
 
-        document
-          .getElementById('loading')
-          .innerHTML = `
-            <div class="error">
-              <strong>
-                Die Fotos konnten leider nicht geladen werden.
-              </strong>
-              <br><br>
-              Bitte versucht es später noch einmal.
-            </div>
-          `;
+        document.getElementById('loading').innerHTML = `
+          <div class="error">
+            <strong>
+              Die Fotos konnten leider nicht geladen werden.
+            </strong>
+            <br><br>
+            Bitte versucht es später noch einmal.
+          </div>
+        `;
 
-        document
-          .getElementById('count')
-          .textContent =
+        document.getElementById('count').textContent =
           'Fehler beim Laden';
       }
     }
 
-
     function renderNoPhotos() {
+      document.getElementById('loading').style.display = 'none';
 
-      document
-        .getElementById('loading')
-        .style
-        .display =
-        'none';
+      document.getElementById('gallery').innerHTML = `
+        <div class="error">
+          Momentan sind noch keine Fotos verfügbar.
+        </div>
+      `;
 
-      document
-        .getElementById('gallery')
-        .innerHTML = `
-          <div class="error">
-            Momentan sind noch keine Fotos verfügbar.
-          </div>
-        `;
-
-      document
-        .getElementById('count')
-        .textContent =
-        '0 Fotos';
+      document.getElementById('count').textContent = '0 Fotos';
     }
-
 
     function renderPhotos() {
+      const gallery = document.getElementById('gallery');
+      const loading = document.getElementById('loading');
 
-      const gallery =
-        document.getElementById('gallery');
+      loading.style.display = 'none';
+      gallery.innerHTML = '';
 
-      const loading =
-        document.getElementById('loading');
-
-      loading.style.display =
-        'none';
-
-      gallery.innerHTML =
-        '';
-
-      document
-        .getElementById('count')
-        .textContent =
+      document.getElementById('count').textContent =
         galleryPhotos.length +
-        (
-          galleryPhotos.length === 1
-            ? ' Foto'
-            : ' Fotos'
-        );
+        (galleryPhotos.length === 1 ? ' Foto' : ' Fotos');
 
-      galleryPhotos.forEach(
-        function(photo, index) {
+      galleryPhotos.forEach(function(photo, index) {
+        const item = document.createElement('div');
+        item.className = 'photo';
+        item.style.animationDelay = (index * .02) + 's';
 
-          const item =
-            document.createElement('div');
+        const img = document.createElement('img');
+        img.src = photo.thumb;
+        img.alt = photo.name || 'Samaels 1. Geburtstag';
+        img.loading = 'lazy';
 
-          item.className =
-            'photo';
+        img.addEventListener('click', function() {
+          openLightbox(index);
+        });
 
-          item.style.animationDelay =
-            (index * 0.02) +
-            's';
+        const download = document.createElement('a');
+        download.className = 'photo-download';
+        download.href = photo.download;
+        download.target = '_blank';
+        download.rel = 'noopener';
+        download.innerHTML = '↓';
+        download.title = 'Foto herunterladen';
 
-          const img =
-            document.createElement('img');
+        download.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
 
-          img.src =
-            photo.thumb;
-
-          img.alt =
-            photo.name ||
-            'Samaels 1. Geburtstag';
-
-          img.loading =
-            'lazy';
-
-          img.addEventListener(
-            'click',
-            function() {
-
-              openLightbox(
-                index
-              );
-
-            }
-          );
-
-          const download =
-            document.createElement('a');
-
-          download.className =
-            'photo-download';
-
-          download.href =
-            photo.download;
-
-          download.target =
-            '_blank';
-
-          download.rel =
-            'noopener';
-
-          download.innerHTML =
-            '↓';
-
-          download.title =
-            'Foto herunterladen';
-
-          download.addEventListener(
-            'click',
-            function(event) {
-
-              event.stopPropagation();
-
-            }
-          );
-
-          item.appendChild(
-            img
-          );
-
-          item.appendChild(
-            download
-          );
-
-          gallery.appendChild(
-            item
-          );
-
-        }
-      );
+        item.appendChild(img);
+        item.appendChild(download);
+        gallery.appendChild(item);
+      });
     }
-
 
     function openLightbox(index) {
-
-      currentIndex =
-        index;
-
+      currentIndex = index;
       updateLightbox();
 
-      document
-        .getElementById('lightbox')
-        .classList
-        .add('active');
-
-      document.body.style.overflow =
-        'hidden';
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
-
 
     function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
 
-      document
-        .getElementById('lightbox')
-        .classList
-        .remove('active');
-
-      document.body.style.overflow =
-        '';
+      if (!celebrationScreen.classList.contains('active')) {
+        document.body.style.overflow = '';
+      }
     }
 
-
     function updateLightbox() {
-
-      const photo =
-        galleryPhotos[
-          currentIndex
-        ];
+      const photo = galleryPhotos[currentIndex];
 
       if (!photo) return;
 
-      document
-        .getElementById('lightImage')
-        .src =
-        photo.full;
-
-      document
-        .getElementById('downloadButton')
-        .href =
-        photo.download;
-
-      document
-        .getElementById('photoCounter')
-        .textContent =
-        (currentIndex + 1) +
-        ' / ' +
-        galleryPhotos.length;
+      document.getElementById('lightImage').src = photo.full;
+      document.getElementById('downloadButton').href = photo.download;
+      document.getElementById('photoCounter').textContent =
+        (currentIndex + 1) + ' / ' + galleryPhotos.length;
     }
-
 
     function nextPhoto() {
-
       currentIndex =
-        (
-          currentIndex +
-          1
-        ) %
-        galleryPhotos.length;
+        (currentIndex + 1) % galleryPhotos.length;
 
       updateLightbox();
     }
-
 
     function previousPhoto() {
-
       currentIndex =
-        (
-          currentIndex -
-          1 +
-          galleryPhotos.length
-        ) %
+        (currentIndex - 1 + galleryPhotos.length) %
         galleryPhotos.length;
 
       updateLightbox();
     }
 
+    document.addEventListener('keydown', function(event) {
+      const box =
+        document.getElementById('lightbox');
 
-    document.addEventListener(
-      'keydown',
-      function(event) {
-
-        const box =
-          document.getElementById('lightbox');
-
-        if (
-          !box.classList.contains(
-            'active'
-          )
-        ) {
-          return;
-        }
-
-        if (
-          event.key === 'Escape'
-        ) {
-          closeLightbox();
-        }
-
-        if (
-          event.key === 'ArrowRight'
-        ) {
-          nextPhoto();
-        }
-
-        if (
-          event.key === 'ArrowLeft'
-        ) {
-          previousPhoto();
-        }
-
+      if (!box.classList.contains('active')) {
+        return;
       }
-    );
 
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+
+      if (event.key === 'ArrowRight') {
+        nextPhoto();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        previousPhoto();
+      }
+    });
 
     const lightbox =
       document.getElementById('lightbox');
 
-
     lightbox.addEventListener(
       'touchstart',
       function(event) {
-
         touchStartX =
-          event
-            .changedTouches[0]
-            .screenX;
-
+          event.changedTouches[0].screenX;
       },
-      {
-        passive: true
-      }
+      { passive: true }
     );
-
 
     lightbox.addEventListener(
       'touchend',
       function(event) {
-
         const touchEndX =
-          event
-            .changedTouches[0]
-            .screenX;
+          event.changedTouches[0].screenX;
 
-        const diff =
-          touchStartX -
-          touchEndX;
+        const diff = touchStartX - touchEndX;
 
-        if (
-          Math.abs(diff) < 50
-        ) {
+        if (Math.abs(diff) < 50) {
           return;
         }
 
-        if (
-          diff > 0
-        ) {
+        if (diff > 0) {
           nextPhoto();
         } else {
           previousPhoto();
         }
-
       },
-      {
-        passive: true
-      }
+      { passive: true }
     );
 
-
+    initialiseConsentScreen();
     loadPhotos();
-
   </script>
-
 </body>
 </html>
