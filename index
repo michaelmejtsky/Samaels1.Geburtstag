@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Samaels 1. Geburtstag</title>
+  <meta name="theme-color" content="#dbe5ec" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --bg: #f7f3ee;
+      --bg2: #eef3f6;
+      --card: rgba(255,255,255,0.72);
+      --card-solid: #ffffff;
+      --text: #262626;
+      --muted: #706d68;
+      --line: rgba(0,0,0,0.06);
+      --shadow: 0 12px 40px rgba(0,0,0,0.08);
+      --shadow-soft: 0 6px 20px rgba(0,0,0,0.06);
+      --accent: #8ca7ba;
+      --accent-dark: #678396;
+      --accent-light: #dce8ef;
+      --radius: 24px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Inter,
+        Roboto,
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fef8f1 0%, transparent 35%),
+        radial-gradient(circle at top right, #e9f1f6 0%, transparent 32%),
+        linear-gradient(180deg, #f7f3ee 0%, #f5f2ec 32%, #eef3f6 100%);
+      min-height: 100vh;
+    }
+
+    .background-blur {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: 0.30;
+    }
+
+    .blob.one {
+      width: 280px;
+      height: 280px;
+      background: #dbe8ef;
+      top: 40px;
+      left: -40px;
+    }
+
+    .blob.two {
+      width: 300px;
+      height: 300px;
+      background: #f0dfcf;
+      top: 220px;
+      right: -60px;
+    }
+
+    .blob.three {
+      width: 240px;
+      height: 240px;
+      background: #e3ece4;
+      bottom: 120px;
+      left: 15%;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1380px, calc(100% - 20px));
+      margin: 0 auto;
+      padding-bottom: 50px;
+    }
+
+    .hero {
+      position: relative;
+      padding:
+        calc(28px + env(safe-area-inset-top))
+        18px
+        24px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 34px 22px 28px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.76), rgba(255,255,255,0.58));
+      border: 1px solid rgba(255,255,255,0.65);
+      backdrop-filter: blur(22px);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, #d8e6ef 0%, transparent 68%);
+      top: -70px;
+      left: -80px;
+    }
+
+    .hero-card::after {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, #f2dfcf 0%, transparent 68%);
+      bottom: -100px;
+      right: -80px;
+    }
+
+    .top-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: var(--shadow-soft);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .number {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.84));
+      color: var(--accent-dark);
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.95);
+      font-size: 38px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      width: min(760px, 100%);
+      margin: 18px auto 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #54514d;
+    }
+
+    .hero-info {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .info-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow-soft);
+      color: #5d5a56;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .content-card {
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 18px;
+      margin-top: 10px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      padding: 6px 2px 2px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+
+    .count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--line);
+      color: #5f5c58;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .toolbar-right {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .loading {
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 46px;
+      height: 46px;
+      border: 4px solid rgba(0,0,0,0.08);
+      border-top-color: var(--accent-dark);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .photo-card {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #ececec;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+    }
+
+    .photo-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.00) 45%,
+          rgba(0,0,0,0.10) 100%
+        );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-meta {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 2;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .photo-name {
+      max-width: calc(100% - 58px);
+      padding: 9px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.76);
+      color: #373532;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.25;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .download-small {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.88);
+      color: #222;
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: 800;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform .18s ease;
+    }
+
+    .download-small:hover {
+      transform: scale(1.06);
+    }
+
+    .error {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.88);
+      border-radius: 22px;
+      color: #595652;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .footer {
+      padding:
+        28px 18px
+        calc(34px + env(safe-area-inset-bottom));
+      text-align: center;
+      color: #8b8781;
+      font-size: 13px;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 22%),
+        rgba(8,8,10,0.96);
+      padding:
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 76px 16px 24px;
+      position: relative;
+    }
+
+    .light-image-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex: 1;
+    }
+
+    .light-image {
+      max-width: 94vw;
+      max-height: 74vh;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      object-fit: contain;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .close-btn {
+      position: fixed;
+      top: calc(14px + env(safe-area-inset-top));
+      right: 14px;
+      width: 50px;
+      height: 50px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 74px;
+      border: 0;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.13);
+      color: #fff;
+      font-size: 34px;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    }
+
+    .nav-left { left: 14px; }
+    .nav-right { right: 14px; }
+
+    .lightbox-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .counter {
+      color: rgba(255,255,255,0.76);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .lightbox-name {
+      color: rgba(255,255,255,0.90);
+      font-size: 14px;
+      max-width: min(700px, 88vw);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-width: 210px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffffff, #f4f4f4);
+      color: #222;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+    }
+
+    @media (max-width: 780px) {
+      .hero-card {
+        padding: 28px 16px 24px;
+        border-radius: 28px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.4px;
+      }
+
+      .hero p {
+        font-size: 15.5px;
+      }
+
+      .content-card {
+        padding: 12px;
+        border-radius: 22px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+      }
+
+      .photo-card {
+        border-radius: 12px;
+      }
+
+      .photo-meta {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+      }
+
+      .photo-name {
+        font-size: 11px;
+        padding: 8px 10px;
+        border-radius: 14px;
+      }
+
+      .download-small {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        font-size: 16px;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+      }
+
+      .toolbar-right {
+        font-size: 12px;
+      }
+
+      .light-image {
+        max-width: 100vw;
+        max-height: 69vh;
+        border-radius: 14px;
+      }
+
+      .nav-btn {
+        top: auto;
+        bottom: calc(92px + env(safe-area-inset-bottom));
+        transform: none;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        font-size: 28px;
+      }
+
+      .nav-left { left: 18px; }
+      .nav-right { right: 18px; }
+
+      .download-btn {
+        min-width: 190px;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-blur">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+  </div>
+
+  <div class="page">
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="top-badge">🎈 Erinnerungen zum Mitnehmen</div>
+
+        <div class="number">1</div>
+
+        <h1>Samaels 1.<br>Geburtstag</h1>
+
+        <p>
+          Ein ganz besonderer Tag voller schöner Momente, Lachen und Erinnerungen. ❤️
+          <br>
+          Hier könnt ihr euch die Fotos ansehen, vergrößern und ganz einfach herunterladen.
+        </p>
+
+        <div class="hero-info">
+          <div class="info-pill">📸 Geburtstagsgalerie</div>
+          <div class="info-pill">⬇️ Download für Familie & Freunde</div>
+          <div class="info-pill">🤍 Für immer schöne Erinnerungen</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="section-title">Unsere schönsten Momente</div>
+          <div id="countBadge" class="count-badge">Fotos werden geladen …</div>
+        </div>
+
+        <div class="toolbar-right">Foto antippen zum Vergrößern</div>
+      </div>
+
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <div>Die Galerie wird geladen …</div>
+      </div>
+
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <footer class="footer">
+      Danke, dass ihr diesen besonderen Tag mit uns gefeiert habt. 🤍
+    </footer>
+
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <button class="close-btn" onclick="closeLightbox()">×</button>
+    <button class="nav-btn nav-left" onclick="previousPhoto()">‹</button>
+    <button class="nav-btn nav-right" onclick="nextPhoto()">›</button>
+
+    <div class="lightbox-inner">
+      <div class="light-image-wrap">
+        <img id="lightImage" class="light-image" alt="Samaels 1. Geburtstag" />
+      </div>
+
+      <div class="lightbox-bottom">
+        <div id="photoCounter" class="counter"></div>
+        <div id="lightboxName" class="lightbox-name"></div>
+
+        <a
+          id="downloadButton"
+          class="download-btn"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          ↓ Foto herunterladen
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL =
+      'https://script.google.com/a/macros/bsb3100.at/s/AKfycbyjZ3nhws9i3m61IWaA0_AZvt3rlhAoI7gwPBxKi1LeTVx0t-3adoTVX07NHOGZwog/exec?api=photos';
+
+    let photos = [];
+    let currentIndex = 0;
+    let touchStartX = 0;
+
+    async function loadPhotos() {
+      try {
+        const response = await fetch(API_URL, { cache: 'no-store' });
+
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+
+        photos = await response.json();
+        renderPhotos();
+      } catch (error) {
+        console.error(error);
+
+        document.getElementById('loading').innerHTML = `
+          <div class="error">
+            <strong>Die Fotos konnten leider nicht geladen werden.</strong>
+            <br><br>
+            Bitte versucht es später noch einmal.
+          </div>
+        `;
+
+        document.getElementById('countBadge').textContent = 'Fehler beim Laden';
+      }
+    }
+
+    function renderPhotos() {
+      const gallery = document.getElementById('gallery');
+      const loading = document.getElementById('loading');
+      const countBadge = document.getElementById('countBadge');
+
+      loading.style.display = 'none';
+      gallery.innerHTML = '';
+
+      countBadge.textContent =
+        photos.length + (photos.length === 1 ? ' Foto' : ' Fotos');
+
+      if (!photos.length) {
+        gallery.innerHTML = `
+          <div class="error">
+            Momentan sind noch keine Fotos verfügbar.
+          </div>
+        `;
+        return;
+      }
+
+      photos.forEach((photo, index) => {
+        const card = document.createElement('div');
+        card.className = 'photo-card';
+        card.addEventListener('click', () => openLightbox(index));
+
+        const img = document.createElement('img');
+        img.src = photo.thumb;
+        img.alt = photo.name || 'Samaels 1. Geburtstag';
+        img.loading = 'lazy';
+
+        const meta = document.createElement('div');
+        meta.className = 'photo-meta';
+
+        const name = document.createElement('div');
+        name.className = 'photo-name';
+        name.textContent = photo.name || 'Foto';
+
+        const download = document.createElement('a');
+        download.className = 'download-small';
+        download.href = photo.download;
+        download.target = '_blank';
+        download.rel = 'noopener';
+        download.innerHTML = '↓';
+        download.title = 'Foto herunterladen';
+        download.addEventListener('click', (event) => event.stopPropagation());
+
+        meta.appendChild(name);
+        meta.appendChild(download);
+
+        card.appendChild(img);
+        card.appendChild(meta);
+
+        gallery.appendChild(card);
+      });
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const photo = photos[currentIndex];
+      if (!photo) return;
+
+      document.getElementById('lightImage').src = photo.full;
+      document.getElementById('downloadButton').href = photo.download;
+      document.getElementById('photoCounter').textContent =
+        (currentIndex + 1) + ' / ' + photos.length;
+      document.getElementById('lightboxName').textContent =
+        photo.name || 'Foto';
+    }
+
+    function nextPhoto() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      updateLightbox();
+    }
+
+    function previousPhoto() {
+      currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+      updateLightbox();
+    }
+
+    document.addEventListener('keydown', (event) => {
+      const lightbox = document.getElementById('lightbox');
+
+      if (!lightbox.classList.contains('active')) return;
+
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowRight') nextPhoto();
+      if (event.key === 'ArrowLeft') previousPhoto();
+    });
+
+    const lightbox = document.getElementById('lightbox');
+
+    lightbox.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (event) => {
+      const touchEndX = event.changedTouches[0].screenX;
+      const difference = touchStartX - touchEndX;
+
+      if (Math.abs(difference) < 50) return;
+
+      if (difference > 0) {
+        nextPhoto();
+      } else {
+        previousPhoto();
+      }
+    }, { passive: true });
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    loadPhotos();
+  </script>
+</body>
+</html>
