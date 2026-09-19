@@ -15,11 +15,9 @@
     :root {
       --cream: #f5eadc;
       --sand: #dcc5a8;
-      --sand-dark: #a78a69;
       --brown: #594432;
       --brown-soft: #786657;
       --text: #372e27;
-      --shadow: 0 18px 55px rgba(76, 53, 35, .15);
     }
 
     html {
@@ -51,45 +49,43 @@
     .bg {
       position: fixed;
       inset: 0;
+      pointer-events: none;
       z-index: 0;
       overflow: hidden;
-      pointer-events: none;
     }
 
     .blob {
       position: absolute;
       border-radius: 999px;
       filter: blur(90px);
-      opacity: .23;
+      opacity: .22;
     }
 
     .blob.one {
       width: 300px;
       height: 300px;
-      left: -80px;
-      top: -50px;
       background: #e2c39f;
+      left: -80px;
+      top: -60px;
     }
 
     .blob.two {
       width: 330px;
       height: 330px;
+      background: #d8b596;
       right: -90px;
       top: 280px;
-      background: #d8b596;
     }
 
     .blob.three {
       width: 270px;
       height: 270px;
+      background: #e5ccb0;
       left: 12%;
       bottom: 40px;
-      background: #e5ccb0;
     }
 
-    /* =========================================================
-       STARTSCREEN
-       ========================================================= */
+    /* STARTSCREEN */
 
     .start-screen {
       position: fixed;
@@ -108,9 +104,7 @@
         radial-gradient(circle at 20% 0%, #f6e3cc, transparent 38%),
         radial-gradient(circle at 100% 20%, #ddbea0, transparent 35%),
         linear-gradient(160deg, #e8d3ba, #f4e9dc 52%, #e4cfb7);
-      transition:
-        opacity .65s ease,
-        visibility .65s ease;
+      transition: opacity .6s ease, visibility .6s ease;
     }
 
     .start-screen.hide {
@@ -122,45 +116,45 @@
     .start-card {
       width: min(680px, 100%);
       margin: auto;
-      padding: 32px 24px 28px;
+      padding: 30px 24px 26px;
+      border-radius: 30px;
       text-align: center;
-      border-radius: 32px;
       background:
         linear-gradient(
           180deg,
-          rgba(255, 247, 236, .96),
-          rgba(240, 224, 204, .94)
+          rgba(255,247,236,.96),
+          rgba(240,224,204,.94)
         );
-      border: 1px solid rgba(101, 72, 46, .09);
-      box-shadow: 0 22px 65px rgba(74, 50, 31, .20);
+      border: 1px solid rgba(101,72,46,.09);
+      box-shadow: 0 22px 65px rgba(74,50,31,.20);
     }
 
     .start-kicker {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      margin-bottom: 13px;
+      margin-bottom: 12px;
       padding: 8px 13px;
       border-radius: 999px;
-      background: rgba(166, 126, 87, .12);
+      background: rgba(166,126,87,.12);
       color: var(--brown);
       font-size: 12px;
       font-weight: 800;
     }
 
     .start-number {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 15px;
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       background: linear-gradient(180deg, #fff7ec, #ead2b5);
       color: var(--brown);
-      font-size: 37px;
+      font-size: 36px;
       font-weight: 800;
-      box-shadow: 0 11px 28px rgba(82, 57, 37, .15);
+      box-shadow: 0 11px 28px rgba(82,57,37,.15);
     }
 
     .start-card h1 {
@@ -180,23 +174,20 @@
     }
 
     .notice {
-      margin-top: 20px;
-      padding: 18px 16px;
+      margin-top: 18px;
+      padding: 17px 15px;
       text-align: left;
       border-radius: 20px;
       background:
         linear-gradient(
           180deg,
-          rgba(228, 204, 175, .58),
-          rgba(244, 229, 210, .80)
+          rgba(228,204,175,.58),
+          rgba(244,229,210,.80)
         );
-      border: 1px solid rgba(83, 59, 38, .08);
+      border: 1px solid rgba(83,59,38,.08);
     }
 
     .notice-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
       margin-bottom: 9px;
       color: var(--brown);
       font-size: 16px;
@@ -207,7 +198,7 @@
       margin: 0 0 9px;
       color: #625347;
       font-size: 14px;
-      line-height: 1.58;
+      line-height: 1.55;
     }
 
     .notice p:last-child {
@@ -219,7 +210,7 @@
     }
 
     .name-box {
-      margin-top: 16px;
+      margin-top: 15px;
       text-align: left;
     }
 
@@ -234,20 +225,12 @@
     .name-box input {
       width: 100%;
       padding: 13px 14px;
-      border: 1px solid rgba(83, 59, 38, .15);
+      border: 1px solid rgba(83,59,38,.15);
       border-radius: 15px;
       background: #fff7ed;
       color: var(--text);
       font-size: 16px;
       outline: none;
-      box-shadow: 0 5px 15px rgba(76, 52, 34, .07);
-    }
-
-    .name-box input:focus {
-      border-color: #b89875;
-      box-shadow:
-        0 0 0 4px rgba(184, 152, 117, .15),
-        0 5px 15px rgba(76, 52, 34, .07);
     }
 
     .privacy-note {
@@ -258,7 +241,7 @@
     }
 
     .thanks {
-      margin-top: 15px;
+      margin-top: 14px;
       color: #625347;
       font-size: 14px;
       line-height: 1.55;
@@ -273,7 +256,7 @@
 
     .enter-btn {
       width: 100%;
-      margin-top: 17px;
+      margin-top: 16px;
       padding: 15px 17px;
       border: 0;
       border-radius: 999px;
@@ -282,7 +265,12 @@
       font-size: 14px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 12px 28px rgba(66, 44, 28, .25);
+      box-shadow: 0 12px 28px rgba(66,44,28,.25);
+    }
+
+    .enter-btn:disabled {
+      opacity: .65;
+      cursor: wait;
     }
 
     .name-error {
@@ -293,9 +281,7 @@
       font-weight: 700;
     }
 
-    /* =========================================================
-       FEIER-OVERLAY
-       ========================================================= */
+    /* FEIER-SCREEN */
 
     .celebration-screen {
       position: fixed;
@@ -306,11 +292,11 @@
       justify-content: center;
       overflow: hidden;
       background:
-        radial-gradient(circle at 50% 10%, rgba(255,255,255,.30), transparent 35%),
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,.28), transparent 35%),
         linear-gradient(180deg, #f1d9bb 0%, #f6ead9 45%, #e7c7a5 100%);
       opacity: 0;
-      transition: opacity .6s ease, visibility .6s ease;
       visibility: hidden;
+      transition: opacity .6s ease, visibility .6s ease;
     }
 
     .celebration-screen.active {
@@ -325,6 +311,14 @@
       pointer-events: none;
     }
 
+    .effects-layer {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     .celebration-card {
       position: relative;
       z-index: 3;
@@ -332,9 +326,9 @@
       padding: 34px 22px;
       text-align: center;
       border-radius: 30px;
-      background: rgba(255, 248, 239, .82);
-      border: 1px solid rgba(111, 82, 52, .10);
-      box-shadow: 0 24px 70px rgba(72, 48, 28, .20);
+      background: rgba(255,248,239,.84);
+      border: 1px solid rgba(111,82,52,.10);
+      box-shadow: 0 24px 70px rgba(72,48,28,.20);
       backdrop-filter: blur(10px);
     }
 
@@ -385,15 +379,6 @@
       font-size: 13px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 10px 24px rgba(71, 49, 31, .22);
-    }
-
-    .effects-layer {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 1;
     }
 
     .confetti {
@@ -405,18 +390,15 @@
       animation-name: confettiFall;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
-      transform: rotate(0deg);
       border-radius: 3px;
     }
 
     @keyframes confettiFall {
       0% {
         transform: translateY(-40px) rotate(0deg);
-        opacity: 1;
       }
       100% {
         transform: translateY(115vh) rotate(720deg);
-        opacity: .9;
       }
     }
 
@@ -439,7 +421,7 @@
       bottom: -42px;
       width: 2px;
       height: 44px;
-      background: rgba(98, 78, 60, .45);
+      background: rgba(98,78,60,.45);
       transform: translateX(-50%);
     }
 
@@ -465,7 +447,6 @@
       }
       50% {
         transform: translateY(-52vh) translateX(10px) rotate(4deg);
-        opacity: 1;
       }
       100% {
         transform: translateY(-120vh) translateX(-16px) rotate(-5deg);
@@ -473,9 +454,7 @@
       }
     }
 
-    /* =========================================================
-       SEITENINHALT
-       ========================================================= */
+    /* HAUPTSEITE */
 
     .page {
       position: relative;
@@ -502,7 +481,7 @@
       background: linear-gradient(145deg, #c9ac8c, #876b54);
       background-size: cover;
       background-position: center;
-      box-shadow: 0 18px 52px rgba(70, 47, 31, .23);
+      box-shadow: 0 18px 52px rgba(70,47,31,.23);
     }
 
     .hero-photo::before {
@@ -512,9 +491,9 @@
       background:
         linear-gradient(
           180deg,
-          rgba(31, 22, 15, .03) 0%,
-          rgba(31, 22, 15, .12) 42%,
-          rgba(31, 22, 15, .72) 100%
+          rgba(31,22,15,.03) 0%,
+          rgba(31,22,15,.12) 42%,
+          rgba(31,22,15,.72) 100%
         );
     }
 
@@ -528,14 +507,11 @@
 
     .hero-badge {
       display: inline-flex;
-      align-items: center;
-      gap: 7px;
       margin-bottom: 12px;
       padding: 8px 13px;
       border-radius: 999px;
-      background: rgba(61, 42, 27, .35);
-      border: 1px solid rgba(255, 255, 255, .17);
-      backdrop-filter: blur(10px);
+      background: rgba(61,42,27,.35);
+      border: 1px solid rgba(255,255,255,.17);
       font-size: 12px;
       font-weight: 700;
     }
@@ -546,23 +522,19 @@
       font-size: clamp(40px, 7vw, 76px);
       line-height: .96;
       letter-spacing: -2px;
-      text-shadow: 0 4px 22px rgba(0, 0, 0, .32);
+      text-shadow: 0 4px 22px rgba(0,0,0,.32);
     }
 
     .hero-sub {
       max-width: 700px;
       margin-top: 13px;
-      color: rgba(255, 255, 255, .96);
+      color: rgba(255,255,255,.96);
       font-size: 16px;
       line-height: 1.6;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, .30);
     }
 
     .hero-actions {
       margin-top: 17px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
     }
 
     .hero-btn {
@@ -570,18 +542,13 @@
       align-items: center;
       justify-content: center;
       padding: 12px 16px;
-      border: 0;
       border-radius: 999px;
-      cursor: pointer;
       text-decoration: none;
       font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .19);
-    }
-
-    .hero-btn.primary {
       background: #f7ead9;
       color: #473426;
+      box-shadow: 0 8px 22px rgba(0,0,0,.19);
     }
 
     .mini-story {
@@ -592,11 +559,9 @@
       background:
         linear-gradient(
           180deg,
-          rgba(230, 208, 183, .80),
-          rgba(244, 230, 211, .90)
+          rgba(230,208,183,.80),
+          rgba(244,230,211,.90)
         );
-      border: 1px solid rgba(78, 55, 36, .07);
-      box-shadow: 0 11px 30px rgba(72, 49, 32, .10);
     }
 
     .mini-story h3 {
@@ -617,14 +582,11 @@
       margin-top: 7px;
       padding: 10px;
       border-radius: 21px;
-      background: rgba(229, 210, 187, .74);
-      border: 1px solid rgba(78, 54, 35, .07);
-      box-shadow: 0 13px 35px rgba(70, 48, 31, .11);
+      background: rgba(229,210,187,.74);
     }
 
     .toolbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 9px;
@@ -634,9 +596,9 @@
 
     .toolbar-left {
       display: flex;
+      gap: 8px;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
     }
 
     .toolbar-title {
@@ -648,7 +610,7 @@
     .count {
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(255, 246, 235, .82);
+      background: rgba(255,246,235,.82);
       color: #695647;
       font-size: 12px;
       font-weight: 700;
@@ -672,7 +634,7 @@
     .spinner {
       width: 40px;
       height: 40px;
-      border: 4px solid rgba(79, 55, 36, .10);
+      border: 4px solid rgba(79,55,36,.10);
       border-top-color: #927456;
       border-radius: 50%;
       animation: spin .8s linear infinite;
@@ -701,7 +663,6 @@
       border-radius: 15px;
       background: #d5c0a9;
       cursor: pointer;
-      box-shadow: 0 7px 19px rgba(67, 46, 31, .11);
       opacity: 0;
       transform: translateY(12px);
       animation: fadeUp .38s ease forwards;
@@ -719,24 +680,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform .3s ease;
-    }
-
-    .photo:hover img {
-      transform: scale(1.035);
-    }
-
-    .photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(
-          180deg,
-          transparent 52%,
-          rgba(41, 28, 19, .20) 100%
-        );
     }
 
     .photo-download {
@@ -750,20 +693,11 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background: rgba(248, 235, 218, .95);
+      background: rgba(248,235,218,.95);
       color: #463326;
       text-decoration: none;
       font-size: 17px;
       font-weight: 800;
-      box-shadow: 0 5px 15px rgba(53, 36, 24, .18);
-    }
-
-    .error {
-      padding: 34px 18px;
-      border-radius: 17px;
-      background: #f6e9d9;
-      color: #625347;
-      text-align: center;
     }
 
     .footer {
@@ -771,8 +705,8 @@
         25px
         18px
         calc(32px + env(safe-area-inset-bottom));
-      color: #75655a;
       text-align: center;
+      color: #75655a;
       font-size: 13px;
     }
 
@@ -780,9 +714,7 @@
       color: #513e30;
     }
 
-    /* =========================================================
-       LIGHTBOX
-       ========================================================= */
+    /* LIGHTBOX */
 
     .lightbox {
       position: fixed;
@@ -792,7 +724,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background: rgba(27, 19, 14, .97);
+      background: rgba(27,19,14,.97);
     }
 
     .lightbox.active {
@@ -804,7 +736,6 @@
       max-height: 74vh;
       object-fit: contain;
       border-radius: 15px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, .42);
     }
 
     .close {
@@ -815,7 +746,7 @@
       height: 48px;
       border: 0;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .13);
+      background: rgba(255,255,255,.13);
       color: white;
       font-size: 28px;
       cursor: pointer;
@@ -829,7 +760,7 @@
       height: 70px;
       border: 0;
       border-radius: 17px;
-      background: rgba(255, 255, 255, .11);
+      background: rgba(255,255,255,.11);
       color: white;
       font-size: 34px;
       cursor: pointer;
@@ -852,7 +783,7 @@
     }
 
     .counter {
-      color: rgba(255, 255, 255, .72);
+      color: rgba(255,255,255,.72);
       font-size: 13px;
       font-weight: 700;
     }
@@ -864,17 +795,11 @@
       color: #423024;
       text-decoration: none;
       font-weight: 800;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, .28);
     }
-
-    /* =========================================================
-       HANDY
-       ========================================================= */
 
     @media (max-width: 780px) {
       .start-screen {
         align-items: flex-start;
-        justify-content: center;
         padding:
           calc(9px + env(safe-area-inset-top))
           8px
@@ -882,15 +807,8 @@
       }
 
       .start-card {
-        margin: 0 auto 8px;
         padding: 18px 13px 17px;
         border-radius: 21px;
-      }
-
-      .start-kicker {
-        margin-bottom: 8px;
-        padding: 6px 10px;
-        font-size: 10.5px;
       }
 
       .start-number {
@@ -902,7 +820,6 @@
 
       .start-card h1 {
         font-size: 33px;
-        letter-spacing: -1px;
       }
 
       .start-intro {
@@ -918,7 +835,6 @@
       }
 
       .notice-title {
-        margin-bottom: 6px;
         font-size: 13px;
       }
 
@@ -928,27 +844,8 @@
         line-height: 1.4;
       }
 
-      .name-box {
-        margin-top: 11px;
-      }
-
-      .name-box input {
-        padding: 11px 12px;
-      }
-
       .privacy-note {
         font-size: 9.5px;
-      }
-
-      .thanks {
-        margin-top: 10px;
-        font-size: 12px;
-      }
-
-      .enter-btn {
-        margin-top: 11px;
-        padding: 12px 13px;
-        font-size: 12px;
       }
 
       .celebration-card {
@@ -963,17 +860,6 @@
 
       .celebration-text {
         font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .celebration-sub {
-        font-size: 12px;
-      }
-
-      .skip-btn {
-        margin-top: 16px;
-        padding: 10px 14px;
-        font-size: 12px;
       }
 
       .balloon {
@@ -985,10 +871,6 @@
         width: calc(100% - 8px);
       }
 
-      .hero {
-        padding-top: calc(4px + env(safe-area-inset-top));
-      }
-
       .hero-photo {
         min-height: 61vh;
         border-radius: 18px;
@@ -998,63 +880,12 @@
         padding: 15px 13px;
       }
 
-      .hero-badge {
-        margin-bottom: 9px;
-        padding: 6px 10px;
-        font-size: 10.5px;
-      }
-
       .hero h2 {
         font-size: 39px;
       }
 
       .hero-sub {
-        margin-top: 9px;
         font-size: 13.5px;
-        line-height: 1.45;
-      }
-
-      .hero-actions {
-        margin-top: 12px;
-      }
-
-      .hero-btn {
-        padding: 10px 13px;
-        font-size: 11.5px;
-      }
-
-      .mini-story {
-        margin-top: 5px;
-        padding: 12px 10px;
-        border-radius: 15px;
-      }
-
-      .mini-story h3 {
-        font-size: 18px;
-      }
-
-      .mini-story p {
-        font-size: 12.5px;
-        line-height: 1.5;
-      }
-
-      .gallery-card {
-        margin-top: 5px;
-        padding: 6px;
-        border-radius: 15px;
-      }
-
-      .toolbar {
-        margin-bottom: 7px;
-        padding: 3px;
-      }
-
-      .toolbar-title {
-        font-size: 17px;
-      }
-
-      .hint {
-        display: none;
       }
 
       .gallery {
@@ -1071,7 +902,10 @@
         height: 35px;
         right: 5px;
         bottom: 5px;
-        font-size: 15px;
+      }
+
+      .hint {
+        display: none;
       }
 
       .light-image {
@@ -1189,15 +1023,22 @@
         </span>
       </div>
 
-      <button id="enterBtn" class="enter-btn">
+      <button
+        id="enterBtn"
+        class="enter-btn"
+        type="button">
         ✓ Hinweis gelesen – Erinnerungen ansehen ❤️
       </button>
 
-      <div id="nameError" class="name-error"></div>
+      <div
+        id="nameError"
+        class="name-error">
+      </div>
+
     </div>
   </div>
 
-  <!-- FEIER-OVERLAY -->
+  <!-- FEIER-SCREEN -->
   <div id="celebrationScreen" class="celebration-screen">
     <div id="effectsLayer" class="effects-layer"></div>
 
@@ -1220,7 +1061,10 @@
         Die Galerie öffnet sich automatisch in 30 Sekunden.
       </div>
 
-      <button id="skipCelebrationBtn" class="skip-btn">
+      <button
+        id="skipCelebrationBtn"
+        class="skip-btn"
+        type="button">
         Jetzt direkt zur Galerie
       </button>
     </div>
@@ -1244,15 +1088,14 @@
 
           <div class="hero-sub">
             Ein Jahr voller Lachen,
-            kleiner Abenteuer
-            und großer Gefühle.
+            kleiner Abenteuer und großer Gefühle.
             <br>
             Danke, dass ihr diesen besonderen Tag
             mit uns gefeiert habt. ❤️
           </div>
 
           <div class="hero-actions">
-            <a href="#galerie" class="hero-btn primary">
+            <a href="#galerie" class="hero-btn">
               ↓ Fotos entdecken
             </a>
           </div>
@@ -1305,13 +1148,14 @@
       <br><br>
       <strong>Alina & Michael</strong>
     </div>
+
   </div>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
-    <button class="close" onclick="closeLightbox()">×</button>
-    <button class="arrow left" onclick="previousPhoto()">‹</button>
-    <button class="arrow right" onclick="nextPhoto()">›</button>
+    <button class="close" type="button" onclick="closeLightbox()">×</button>
+    <button class="arrow left" type="button" onclick="previousPhoto()">‹</button>
+    <button class="arrow right" type="button" onclick="nextPhoto()">›</button>
 
     <img
       id="lightImage"
@@ -1333,29 +1177,43 @@
   </div>
 
   <script>
-const SCRIPT_BASE_URL =
-  'https://script.google.com/macros/s/AKfycbyjZ3nhws9i3m61IWaA0_AZvt3rlhAoI7gwPBxKi1LeTVx0t-3adoTVX07NHOGZwog/exec';
+    const SCRIPT_BASE_URL =
+      'https://script.google.com/macros/s/AKfycbyjZ3nhws9i3m61IWaA0_AZvt3rlhAoI7gwPBxKi1LeTVx0t-3adoTVX07NHOGZwog/exec';
 
-const PHOTO_API =
-  SCRIPT_BASE_URL + '?api=photos';
+    const PHOTO_API =
+      SCRIPT_BASE_URL + '?api=photos';
 
-    const CELEBRATION_DURATION = 30000;
+    const CELEBRATION_DURATION =
+      30000;
 
     let photos = [];
     let galleryPhotos = [];
     let titlePhoto = null;
+
     let currentIndex = 0;
     let touchStartX = 0;
 
     let celebrationTimer = null;
     let celebrationFinished = false;
 
-    const enterBtn = document.getElementById('enterBtn');
-    const startScreen = document.getElementById('startScreen');
-    const heroPhotoEl = document.getElementById('heroPhoto');
-    const celebrationScreen = document.getElementById('celebrationScreen');
-    const effectsLayer = document.getElementById('effectsLayer');
-    const skipCelebrationBtn = document.getElementById('skipCelebrationBtn');
+    const enterBtn =
+      document.getElementById('enterBtn');
+
+    const startScreen =
+      document.getElementById('startScreen');
+
+    const heroPhotoEl =
+      document.getElementById('heroPhoto');
+
+    const celebrationScreen =
+      document.getElementById('celebrationScreen');
+
+    const effectsLayer =
+      document.getElementById('effectsLayer');
+
+    const skipCelebrationBtn =
+      document.getElementById('skipCelebrationBtn');
+
 
     function normalizeFileName(name) {
       return String(name || '')
@@ -1364,75 +1222,124 @@ const PHOTO_API =
         .replace(/\.[^.]+$/, '');
     }
 
+
     function getVisitorId() {
-      let id = localStorage.getItem('samaelVisitorId');
+      let id =
+        localStorage.getItem(
+          'samaelVisitorId'
+        );
 
       if (!id) {
-        if (window.crypto && crypto.randomUUID) {
-          id = crypto.randomUUID();
+        if (
+          window.crypto &&
+          crypto.randomUUID
+        ) {
+          id =
+            crypto.randomUUID();
         } else {
           id =
             Date.now().toString(36) +
-            Math.random().toString(36).substring(2);
+            Math.random()
+              .toString(36)
+              .substring(2);
         }
 
-        localStorage.setItem('samaelVisitorId', id);
+        localStorage.setItem(
+          'samaelVisitorId',
+          id
+        );
       }
 
       return id;
     }
 
+
     function hasConsent() {
       return (
-        localStorage.getItem('samaelPhotoConsent') === 'yes'
+        localStorage.getItem(
+          'samaelPhotoConsent'
+        ) === 'yes'
       );
     }
 
+
     function rememberConsent(name) {
-      localStorage.setItem('samaelPhotoConsent', 'yes');
-      localStorage.setItem('samaelGuestName', name);
-      localStorage.setItem('samaelConsentTime', new Date().toISOString());
+      localStorage.setItem(
+        'samaelPhotoConsent',
+        'yes'
+      );
+
+      localStorage.setItem(
+        'samaelGuestName',
+        name
+      );
+
+      localStorage.setItem(
+        'samaelConsentTime',
+        new Date().toISOString()
+      );
     }
 
+
     function logConsent(guestName) {
-      const sid = getVisitorId();
+      const sid =
+        getVisitorId();
 
       const url =
         SCRIPT_BASE_URL +
         '?api=consent' +
-        '&name=' + encodeURIComponent(guestName) +
-        '&sid=' + encodeURIComponent(sid) +
-        '&_=' + Date.now();
+        '&name=' +
+        encodeURIComponent(guestName) +
+        '&sid=' +
+        encodeURIComponent(sid) +
+        '&_=' +
+        Date.now();
 
-      fetch(url, {
-        method: 'GET',
-        mode: 'no-cors',
-        cache: 'no-store',
-        keepalive: true
-      }).catch(function(error) {
-        console.warn('Zustimmung Fetch:', error);
+      fetch(
+        url,
+        {
+          method: 'GET',
+          mode: 'no-cors',
+          cache: 'no-store',
+          keepalive: true
+        }
+      )
+      .catch(function(error) {
+        console.warn(
+          'Zustimmung konnte nicht protokolliert werden:',
+          error
+        );
       });
-
-      const tracker = new Image();
-      tracker.src = url + '&fallback=1';
     }
+
 
     function initialiseConsentScreen() {
       if (hasConsent()) {
         startScreen.classList.add('hide');
-        document.body.classList.remove('locked');
+
+        document.body.classList.remove(
+          'locked'
+        );
 
         const savedName =
-          localStorage.getItem('samaelGuestName');
+          localStorage.getItem(
+            'samaelGuestName'
+          );
 
         if (savedName) {
-          const input = document.getElementById('guestName');
+          const input =
+            document.getElementById(
+              'guestName'
+            );
+
           if (input) {
-            input.value = savedName;
+            input.value =
+              savedName;
           }
         }
       }
     }
+
 
     function createConfetti() {
       const colors = [
@@ -1445,28 +1352,46 @@ const PHOTO_API =
         '#ffffff'
       ];
 
-      for (let i = 0; i < 140; i++) {
-        const piece = document.createElement('div');
-        piece.className = 'confetti';
+      for (
+        let i = 0;
+        i < 140;
+        i++
+      ) {
+        const piece =
+          document.createElement('div');
 
-        const left = Math.random() * 100;
-        const delay = Math.random() * 8;
-        const duration = 5 + Math.random() * 6;
-        const width = 6 + Math.random() * 8;
-        const height = 10 + Math.random() * 14;
-        const color = colors[Math.floor(Math.random() * colors.length)];
+        piece.className =
+          'confetti';
 
-        piece.style.left = left + '%';
-        piece.style.animationDelay = delay + 's';
-        piece.style.animationDuration = duration + 's';
-        piece.style.background = color;
-        piece.style.width = width + 'px';
-        piece.style.height = height + 'px';
-        piece.style.opacity = (0.75 + Math.random() * 0.25).toFixed(2);
+        piece.style.left =
+          (Math.random() * 100) + '%';
 
-        effectsLayer.appendChild(piece);
+        piece.style.animationDelay =
+          (Math.random() * 8) + 's';
+
+        piece.style.animationDuration =
+          (5 + Math.random() * 6) + 's';
+
+        piece.style.background =
+          colors[
+            Math.floor(
+              Math.random() *
+              colors.length
+            )
+          ];
+
+        piece.style.width =
+          (6 + Math.random() * 8) + 'px';
+
+        piece.style.height =
+          (10 + Math.random() * 14) + 'px';
+
+        effectsLayer.appendChild(
+          piece
+        );
       }
     }
+
 
     function createBalloons() {
       const colors = [
@@ -1479,92 +1404,179 @@ const PHOTO_API =
         '#ff8fa3'
       ];
 
-      for (let i = 0; i < 16; i++) {
-        const balloon = document.createElement('div');
-        balloon.className = 'balloon';
+      for (
+        let i = 0;
+        i < 16;
+        i++
+      ) {
+        const balloon =
+          document.createElement('div');
 
-        const left = Math.random() * 100;
-        const delay = Math.random() * 14;
-        const duration = 12 + Math.random() * 10;
-        const color = colors[Math.floor(Math.random() * colors.length)];
+        balloon.className =
+          'balloon';
 
-        balloon.style.left = left + '%';
-        balloon.style.animationDelay = delay + 's';
-        balloon.style.animationDuration = duration + 's';
-        balloon.style.background = color;
+        balloon.style.left =
+          (Math.random() * 100) + '%';
 
-        effectsLayer.appendChild(balloon);
+        balloon.style.animationDelay =
+          (Math.random() * 14) + 's';
+
+        balloon.style.animationDuration =
+          (12 + Math.random() * 10) + 's';
+
+        balloon.style.background =
+          colors[
+            Math.floor(
+              Math.random() *
+              colors.length
+            )
+          ];
+
+        effectsLayer.appendChild(
+          balloon
+        );
       }
     }
 
+
     function buildCelebrationEffects() {
       effectsLayer.innerHTML = '';
+
       createConfetti();
       createBalloons();
     }
 
+
     function finishCelebration() {
-      if (celebrationFinished) return;
+      if (celebrationFinished) {
+        return;
+      }
 
       celebrationFinished = true;
 
       if (celebrationTimer) {
-        clearTimeout(celebrationTimer);
+        clearTimeout(
+          celebrationTimer
+        );
+
         celebrationTimer = null;
       }
 
-      celebrationScreen.classList.add('hide');
+      celebrationScreen
+        .classList
+        .add('hide');
 
-      setTimeout(function() {
-        celebrationScreen.classList.remove('active');
-        celebrationScreen.classList.remove('hide');
-        effectsLayer.innerHTML = '';
-        document.body.classList.remove('locked');
-      }, 650);
+      setTimeout(
+        function() {
+          celebrationScreen
+            .classList
+            .remove('active');
+
+          celebrationScreen
+            .classList
+            .remove('hide');
+
+          effectsLayer.innerHTML =
+            '';
+
+          document.body
+            .classList
+            .remove('locked');
+        },
+        650
+      );
     }
+
 
     function startCelebration() {
       celebrationFinished = false;
-      document.body.classList.add('locked');
+
+      document.body
+        .classList
+        .add('locked');
 
       buildCelebrationEffects();
 
-      celebrationScreen.classList.add('active');
+      celebrationScreen
+        .classList
+        .add('active');
 
-      celebrationTimer = setTimeout(function() {
-        finishCelebration();
-      }, CELEBRATION_DURATION);
+      celebrationTimer =
+        setTimeout(
+          finishCelebration,
+          CELEBRATION_DURATION
+        );
     }
 
-    skipCelebrationBtn.addEventListener('click', function() {
-      finishCelebration();
-    });
 
-    enterBtn.addEventListener('click', function() {
-      const nameInput = document.getElementById('guestName');
-      const nameError = document.getElementById('nameError');
-      const guestName = nameInput.value.trim();
+    skipCelebrationBtn
+      .addEventListener(
+        'click',
+        finishCelebration
+      );
 
-      if (guestName.length < 2) {
-        nameError.textContent = 'Bitte gib deinen Namen ein.';
-        nameInput.focus();
-        return;
+
+    enterBtn.addEventListener(
+      'click',
+      function() {
+        const nameInput =
+          document.getElementById(
+            'guestName'
+          );
+
+        const nameError =
+          document.getElementById(
+            'nameError'
+          );
+
+        const guestName =
+          nameInput.value.trim();
+
+        if (guestName.length < 2) {
+          nameError.textContent =
+            'Bitte gib deinen Namen ein.';
+
+          nameInput.focus();
+
+          return;
+        }
+
+        nameError.textContent = '';
+
+        enterBtn.disabled = true;
+        enterBtn.textContent =
+          'Wird geöffnet …';
+
+        rememberConsent(
+          guestName
+        );
+
+        logConsent(
+          guestName
+        );
+
+        startScreen
+          .classList
+          .add('hide');
+
+        setTimeout(
+          function() {
+            startCelebration();
+
+            enterBtn.disabled = false;
+            enterBtn.textContent =
+              '✓ Hinweis gelesen – Erinnerungen ansehen ❤️';
+          },
+          300
+        );
       }
+    );
 
-      nameError.textContent = '';
-
-      rememberConsent(guestName);
-      logConsent(guestName);
-
-      startScreen.classList.add('hide');
-
-      setTimeout(function() {
-        startCelebration();
-      }, 350);
-    });
 
     function setHeroTitleImage(photo) {
-      if (!photo) return;
+      if (!photo) {
+        return;
+      }
 
       heroPhotoEl.style.backgroundImage =
         'linear-gradient(180deg, rgba(30,20,13,.03), rgba(30,20,13,.55)), url("' +
@@ -1572,16 +1584,26 @@ const PHOTO_API =
         '")';
     }
 
+
     async function loadPhotos() {
       try {
         const response =
-          await fetch(PHOTO_API, { cache: 'no-store' });
+          await fetch(
+            PHOTO_API,
+            {
+              cache: 'no-store'
+            }
+          );
 
         if (!response.ok) {
-          throw new Error('HTTP ' + response.status);
+          throw new Error(
+            'HTTP ' +
+            response.status
+          );
         }
 
-        photos = await response.json();
+        photos =
+          await response.json();
 
         if (!photos.length) {
           renderNoPhotos();
@@ -1589,19 +1611,34 @@ const PHOTO_API =
         }
 
         titlePhoto =
-          photos.find(function(photo) {
-            return normalizeFileName(photo.name) === 'titelbild';
-          }) || photos[0];
+          photos.find(
+            function(photo) {
+              return (
+                normalizeFileName(
+                  photo.name
+                ) === 'titelbild'
+              );
+            }
+          ) ||
+          photos[0];
 
-        setHeroTitleImage(titlePhoto);
+        setHeroTitleImage(
+          titlePhoto
+        );
 
         galleryPhotos =
-          photos.filter(function(photo) {
-            return photo.id !== titlePhoto.id;
-          });
+          photos.filter(
+            function(photo) {
+              return (
+                photo.id !==
+                titlePhoto.id
+              );
+            }
+          );
 
         if (!galleryPhotos.length) {
-          galleryPhotos = [titlePhoto];
+          galleryPhotos =
+            [titlePhoto];
         }
 
         renderPhotos();
@@ -1609,160 +1646,295 @@ const PHOTO_API =
       } catch (error) {
         console.error(error);
 
-        document.getElementById('loading').innerHTML = `
-          <div class="error">
-            <strong>
-              Die Fotos konnten leider nicht geladen werden.
-            </strong>
-            <br><br>
-            Bitte versucht es später noch einmal.
-          </div>
-        `;
+        document
+          .getElementById('loading')
+          .innerHTML = `
+            <div style="
+              padding:30px 15px;
+              text-align:center;
+              color:#625347;
+            ">
+              <strong>
+                Die Fotos konnten leider nicht geladen werden.
+              </strong>
+              <br><br>
+              Bitte versucht es später noch einmal.
+            </div>
+          `;
 
-        document.getElementById('count').textContent =
+        document
+          .getElementById('count')
+          .textContent =
           'Fehler beim Laden';
       }
     }
 
+
     function renderNoPhotos() {
-      document.getElementById('loading').style.display = 'none';
+      document
+        .getElementById('loading')
+        .style.display =
+        'none';
 
-      document.getElementById('gallery').innerHTML = `
-        <div class="error">
-          Momentan sind noch keine Fotos verfügbar.
-        </div>
-      `;
+      document
+        .getElementById('gallery')
+        .innerHTML = `
+          <div style="
+            padding:30px 15px;
+            text-align:center;
+          ">
+            Momentan sind noch keine Fotos verfügbar.
+          </div>
+        `;
 
-      document.getElementById('count').textContent = '0 Fotos';
+      document
+        .getElementById('count')
+        .textContent =
+        '0 Fotos';
     }
+
 
     function renderPhotos() {
-      const gallery = document.getElementById('gallery');
-      const loading = document.getElementById('loading');
+      const gallery =
+        document.getElementById(
+          'gallery'
+        );
 
-      loading.style.display = 'none';
-      gallery.innerHTML = '';
+      const loading =
+        document.getElementById(
+          'loading'
+        );
 
-      document.getElementById('count').textContent =
+      loading.style.display =
+        'none';
+
+      gallery.innerHTML =
+        '';
+
+      document
+        .getElementById('count')
+        .textContent =
         galleryPhotos.length +
-        (galleryPhotos.length === 1 ? ' Foto' : ' Fotos');
+        (
+          galleryPhotos.length === 1
+            ? ' Foto'
+            : ' Fotos'
+        );
 
-      galleryPhotos.forEach(function(photo, index) {
-        const item = document.createElement('div');
-        item.className = 'photo';
-        item.style.animationDelay = (index * .02) + 's';
+      galleryPhotos.forEach(
+        function(photo, index) {
+          const item =
+            document.createElement('div');
 
-        const img = document.createElement('img');
-        img.src = photo.thumb;
-        img.alt = photo.name || 'Samaels 1. Geburtstag';
-        img.loading = 'lazy';
+          item.className =
+            'photo';
 
-        img.addEventListener('click', function() {
-          openLightbox(index);
-        });
+          item.style.animationDelay =
+            (index * .02) + 's';
 
-        const download = document.createElement('a');
-        download.className = 'photo-download';
-        download.href = photo.download;
-        download.target = '_blank';
-        download.rel = 'noopener';
-        download.innerHTML = '↓';
-        download.title = 'Foto herunterladen';
+          const img =
+            document.createElement('img');
 
-        download.addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
+          img.src =
+            photo.thumb;
 
-        item.appendChild(img);
-        item.appendChild(download);
-        gallery.appendChild(item);
-      });
+          img.alt =
+            photo.name ||
+            'Samaels 1. Geburtstag';
+
+          img.loading =
+            'lazy';
+
+          img.addEventListener(
+            'click',
+            function() {
+              openLightbox(
+                index
+              );
+            }
+          );
+
+          const download =
+            document.createElement('a');
+
+          download.className =
+            'photo-download';
+
+          download.href =
+            photo.download;
+
+          download.target =
+            '_blank';
+
+          download.rel =
+            'noopener';
+
+          download.innerHTML =
+            '↓';
+
+          download.title =
+            'Foto herunterladen';
+
+          download.addEventListener(
+            'click',
+            function(event) {
+              event.stopPropagation();
+            }
+          );
+
+          item.appendChild(img);
+          item.appendChild(download);
+
+          gallery.appendChild(item);
+        }
+      );
     }
+
 
     function openLightbox(index) {
       currentIndex = index;
+
       updateLightbox();
 
-      document.getElementById('lightbox').classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document
+        .getElementById('lightbox')
+        .classList
+        .add('active');
+
+      document.body.style.overflow =
+        'hidden';
     }
+
 
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
+      document
+        .getElementById('lightbox')
+        .classList
+        .remove('active');
 
-      if (!celebrationScreen.classList.contains('active')) {
-        document.body.style.overflow = '';
-      }
+      document.body.style.overflow =
+        '';
     }
+
 
     function updateLightbox() {
-      const photo = galleryPhotos[currentIndex];
+      const photo =
+        galleryPhotos[
+          currentIndex
+        ];
 
-      if (!photo) return;
+      if (!photo) {
+        return;
+      }
 
-      document.getElementById('lightImage').src = photo.full;
-      document.getElementById('downloadButton').href = photo.download;
-      document.getElementById('photoCounter').textContent =
-        (currentIndex + 1) + ' / ' + galleryPhotos.length;
+      document
+        .getElementById('lightImage')
+        .src =
+        photo.full;
+
+      document
+        .getElementById('downloadButton')
+        .href =
+        photo.download;
+
+      document
+        .getElementById('photoCounter')
+        .textContent =
+        (currentIndex + 1) +
+        ' / ' +
+        galleryPhotos.length;
     }
+
 
     function nextPhoto() {
       currentIndex =
-        (currentIndex + 1) % galleryPhotos.length;
-
-      updateLightbox();
-    }
-
-    function previousPhoto() {
-      currentIndex =
-        (currentIndex - 1 + galleryPhotos.length) %
+        (
+          currentIndex +
+          1
+        ) %
         galleryPhotos.length;
 
       updateLightbox();
     }
 
-    document.addEventListener('keydown', function(event) {
-      const box =
-        document.getElementById('lightbox');
 
-      if (!box.classList.contains('active')) {
-        return;
-      }
+    function previousPhoto() {
+      currentIndex =
+        (
+          currentIndex -
+          1 +
+          galleryPhotos.length
+        ) %
+        galleryPhotos.length;
 
-      if (event.key === 'Escape') {
-        closeLightbox();
-      }
+      updateLightbox();
+    }
 
-      if (event.key === 'ArrowRight') {
-        nextPhoto();
-      }
 
-      if (event.key === 'ArrowLeft') {
-        previousPhoto();
+    document.addEventListener(
+      'keydown',
+      function(event) {
+        const box =
+          document.getElementById(
+            'lightbox'
+          );
+
+        if (
+          !box.classList.contains(
+            'active'
+          )
+        ) {
+          return;
+        }
+
+        if (event.key === 'Escape') {
+          closeLightbox();
+        }
+
+        if (event.key === 'ArrowRight') {
+          nextPhoto();
+        }
+
+        if (event.key === 'ArrowLeft') {
+          previousPhoto();
+        }
       }
-    });
+    );
+
 
     const lightbox =
-      document.getElementById('lightbox');
+      document.getElementById(
+        'lightbox'
+      );
+
 
     lightbox.addEventListener(
       'touchstart',
       function(event) {
         touchStartX =
-          event.changedTouches[0].screenX;
+          event.changedTouches[0]
+            .screenX;
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
+
 
     lightbox.addEventListener(
       'touchend',
       function(event) {
         const touchEndX =
-          event.changedTouches[0].screenX;
+          event.changedTouches[0]
+            .screenX;
 
-        const diff = touchStartX - touchEndX;
+        const diff =
+          touchStartX -
+          touchEndX;
 
-        if (Math.abs(diff) < 50) {
+        if (
+          Math.abs(diff) < 50
+        ) {
           return;
         }
 
@@ -1772,8 +1944,11 @@ const PHOTO_API =
           previousPhoto();
         }
       },
-      { passive: true }
+      {
+        passive: true
+      }
     );
+
 
     initialiseConsentScreen();
     loadPhotos();
