@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Samaels 1. Geburtstag</title>
-  <meta name="theme-color" content="#1e1e1e">
+  <meta name="theme-color" content="#d8c4a8">
 
   <style>
     * {
@@ -13,18 +13,23 @@
     }
 
     :root {
-      --bg1: #f7f3ee;
-      --bg2: #edf4f7;
-      --text: #2a2724;
-      --muted: #6f6a64;
-      --accent: #89a7ba;
-      --accent-dark: #5c7b90;
-      --card: rgba(255,255,255,.82);
-      --shadow: 0 18px 60px rgba(0,0,0,.10);
+      --sand: #d8c4a8;
+      --sand-dark: #9f8262;
+      --cream: #f6eee2;
+      --cream-dark: #eadfce;
+      --warm: #c9a98a;
+      --brown: #5e4a38;
+      --brown-soft: #7a6756;
+      --text: #382f28;
+      --muted: #75695e;
+      --card: rgba(248, 239, 226, .88);
+      --card-strong: rgba(255, 248, 238, .96);
+      --shadow: 0 18px 55px rgba(86, 62, 40, .16);
     }
 
     html {
       scroll-behavior: smooth;
+      background: #efe4d5;
     }
 
     body {
@@ -39,75 +44,87 @@
         sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, #fff7ef 0%, transparent 30%),
-        radial-gradient(circle at top right, #e7f1f6 0%, transparent 30%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+        radial-gradient(circle at 15% 0%, #f8e9d7 0%, transparent 34%),
+        radial-gradient(circle at 90% 12%, #ead8c2 0%, transparent 32%),
+        linear-gradient(180deg, #efe3d3 0%, #f5ece0 45%, #eadbc9 100%);
     }
 
     body.locked {
       overflow: hidden;
     }
 
+    /* =========================
+       WARMER HINTERGRUND
+       ========================= */
+
     .bg {
       position: fixed;
       inset: 0;
+      z-index: 0;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0;
     }
 
     .blob {
       position: absolute;
       border-radius: 999px;
-      filter: blur(80px);
-      opacity: .22;
+      filter: blur(90px);
+      opacity: .28;
     }
 
     .blob.a {
-      width: 320px;
-      height: 320px;
-      background: #d6e7ef;
-      top: 0;
-      left: -70px;
+      width: 300px;
+      height: 300px;
+      background: #e5c9a8;
+      top: -60px;
+      left: -80px;
     }
 
     .blob.b {
-      width: 340px;
-      height: 340px;
-      background: #f0dece;
-      top: 240px;
-      right: -80px;
+      width: 320px;
+      height: 320px;
+      background: #d9b99c;
+      top: 260px;
+      right: -100px;
     }
 
     .blob.c {
       width: 280px;
       height: 280px;
-      background: #e2ebe2;
-      bottom: 60px;
-      left: 15%;
+      background: #ead7bc;
+      bottom: 80px;
+      left: 12%;
     }
 
-    /* =======================
+    /* =========================
        STARTSCREEN
-       ======================= */
+       ========================= */
 
     .start-screen {
       position: fixed;
       inset: 0;
       z-index: 10000;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      padding:
-        calc(18px + env(safe-area-inset-top))
-        18px
-        calc(18px + env(safe-area-inset-bottom));
+
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+
+      padding:
+        calc(22px + env(safe-area-inset-top))
+        18px
+        calc(22px + env(safe-area-inset-bottom));
+
       background:
-        radial-gradient(circle at top left, #fff7ee, transparent 34%),
-        radial-gradient(circle at top right, #e5f0f6, transparent 32%),
-        linear-gradient(160deg, #f8f3ec, #edf4f7);
-      transition: opacity .7s ease, visibility .7s ease;
+        radial-gradient(circle at 20% 0%, #f7e6d1 0%, transparent 38%),
+        radial-gradient(circle at 100% 20%, #dfc3a5 0%, transparent 34%),
+        linear-gradient(160deg, #ead8c3 0%, #f4eadd 50%, #e7d4bf 100%);
+
+      transition:
+        opacity .65s ease,
+        visibility .65s ease;
     }
 
     .start-screen.hide {
@@ -118,69 +135,139 @@
 
     .start-card {
       width: min(680px, 100%);
-      padding: 34px 25px;
+      margin: auto;
+
+      padding: 34px 26px 30px;
+
       text-align: center;
-      border-radius: 35px;
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(255,255,255,.92);
-      backdrop-filter: blur(22px);
-      box-shadow: 0 20px 70px rgba(0,0,0,.11);
+
+      border-radius: 34px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 248, 238, .94),
+          rgba(246, 235, 220, .91)
+        );
+
+      border: 1px solid rgba(116, 88, 61, .10);
+
+      box-shadow:
+        0 22px 65px rgba(78, 54, 34, .18);
+
+      backdrop-filter: blur(16px);
+    }
+
+    .start-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 14px;
+
+      padding: 9px 14px;
+
+      border-radius: 999px;
+
+      background: rgba(203, 169, 132, .18);
+
+      color: var(--brown);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: .2px;
     }
 
     .start-number {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 18px;
+      width: 82px;
+      height: 82px;
+
+      margin: 0 auto 17px;
+
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+
       border-radius: 50%;
-      background: white;
-      color: var(--accent-dark);
-      font-size: 40px;
+
+      background:
+        linear-gradient(180deg, #fdf5ea, #ead6bf);
+
+      color: var(--brown);
+
+      font-size: 38px;
       font-weight: 800;
-      box-shadow: 0 12px 35px rgba(0,0,0,.08);
+
+      border: 1px solid rgba(105, 78, 52, .08);
+
+      box-shadow:
+        0 12px 30px rgba(91, 65, 42, .13);
     }
 
     .start-card h1 {
       margin: 0;
-      font-size: clamp(36px, 8vw, 61px);
+
+      color: var(--brown);
+
+      font-size: clamp(35px, 7vw, 60px);
       line-height: 1;
-      letter-spacing: -2px;
+      letter-spacing: -1.8px;
     }
 
     .start-intro {
       max-width: 540px;
-      margin: 16px auto 0;
-      color: #595550;
+
+      margin: 15px auto 0;
+
+      color: var(--brown-soft);
+
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     .notice {
-      margin-top: 23px;
-      padding: 20px 18px;
+      margin-top: 22px;
+
+      padding: 19px 17px;
+
       text-align: left;
-      border-radius: 23px;
-      background: rgba(255,255,255,.84);
-      border: 1px solid rgba(0,0,0,.05);
-      box-shadow: 0 8px 28px rgba(0,0,0,.06);
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(237, 219, 198, .66),
+          rgba(244, 231, 214, .82)
+        );
+
+      border: 1px solid rgba(97, 72, 48, .08);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.45);
     }
 
     .notice-title {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 8px;
+
       margin-bottom: 10px;
-      font-size: 17px;
+
+      color: var(--brown);
+
+      font-size: 16px;
       font-weight: 800;
     }
 
     .notice p {
-      margin: 0 0 10px;
-      color: #595550;
+      margin: 0 0 9px;
+
+      color: #65574b;
+
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.58;
     }
 
     .notice p:last-child {
@@ -188,147 +275,202 @@
     }
 
     .notice strong {
-      color: #332f2b;
+      color: #493b31;
     }
 
     .name-box {
-      margin-top: 18px;
+      margin-top: 17px;
       text-align: left;
     }
 
     .name-box label {
       display: block;
       margin-bottom: 7px;
+
+      color: #5c4c3e;
+
       font-size: 13px;
       font-weight: 800;
-      color: #4f4b46;
     }
 
     .name-box input {
       width: 100%;
+
       padding: 14px 15px;
-      border: 1px solid rgba(0,0,0,.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,.94);
-      color: #222;
+
+      border: 1px solid rgba(93, 68, 45, .16);
+      border-radius: 15px;
+
+      background: #fff8ef;
+
+      color: var(--text);
+
       font-size: 16px;
       outline: none;
-      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+
+      box-shadow:
+        0 5px 16px rgba(92, 63, 39, .07);
     }
 
     .name-box input:focus {
-      border-color: #89a7ba;
+      border-color: #b79a79;
+
       box-shadow:
-        0 0 0 4px rgba(137,167,186,.12),
-        0 6px 18px rgba(0,0,0,.05);
+        0 0 0 4px rgba(183,154,121,.15),
+        0 5px 16px rgba(92,63,39,.07);
     }
 
     .privacy-note {
       margin-top: 8px;
-      color: #7b756e;
+
+      color: #837367;
+
       font-size: 11px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .thanks {
-      margin-top: 18px;
-      color: #595550;
-      line-height: 1.65;
-      font-size: 15px;
+      margin-top: 16px;
+
+      color: #65574b;
+
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .names {
       display: block;
+
       margin-top: 5px;
+
+      color: var(--brown);
+
       font-weight: 800;
-      color: var(--accent-dark);
     }
 
     .enter-btn {
       width: 100%;
-      margin-top: 21px;
+
+      margin-top: 19px;
+
+      padding: 15px 18px;
+
       border: 0;
       border-radius: 999px;
-      padding: 16px 20px;
-      cursor: pointer;
-      background: linear-gradient(180deg, #ffffff, #f0f3f4);
-      color: #222;
+
+      background:
+        linear-gradient(
+          180deg,
+          #765b42,
+          #5e4633
+        );
+
+      color: white;
+
       font-size: 15px;
       font-weight: 800;
-      box-shadow: 0 12px 30px rgba(0,0,0,.14);
-      transition: transform .2s ease, box-shadow .2s ease;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 28px rgba(72, 49, 31, .24);
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease;
     }
 
     .enter-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(0,0,0,.17);
+
+      box-shadow:
+        0 15px 34px rgba(72,49,31,.29);
     }
 
     .name-error {
       min-height: 18px;
-      margin-top: 10px;
-      color: #b04444;
+
+      margin-top: 9px;
+
+      color: #a1423c;
+
       font-size: 13px;
       font-weight: 700;
     }
 
-    /* =======================
+    /* =========================
        MAIN
-       ======================= */
+       ========================= */
 
     .page {
       position: relative;
       z-index: 1;
+
       width: min(1400px, calc(100% - 16px));
+
       margin: auto;
-      padding-bottom: 40px;
+
+      padding-bottom: 35px;
     }
 
-    /* =======================
-       HERO MIT TITELBILD
-       ======================= */
+    /* =========================
+       HERO
+       ========================= */
 
     .hero {
       padding:
-        calc(10px + env(safe-area-inset-top))
+        calc(8px + env(safe-area-inset-top))
         0
-        14px;
+        10px;
     }
 
     .hero-photo {
       position: relative;
-      min-height: min(78vh, 820px);
-      border-radius: 34px;
+
+      min-height: min(75vh, 800px);
+
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.45)),
-        linear-gradient(145deg, #dfe9ef, #f3ebe2);
-      background-size: cover;
-      background-position: center center;
-      box-shadow: 0 18px 60px rgba(0,0,0,.16);
+
       display: flex;
       align-items: flex-end;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(145deg, #cdb295, #8e725a);
+
+      background-size: cover;
+      background-position: center;
+
+      box-shadow:
+        0 18px 55px rgba(80, 56, 36, .22);
     }
 
     .hero-photo::before {
       content: "";
+
       position: absolute;
       inset: 0;
+
       background:
         linear-gradient(
           180deg,
-          rgba(0,0,0,.10) 0%,
-          rgba(0,0,0,.16) 28%,
-          rgba(0,0,0,.50) 100%
+          rgba(43, 32, 23, .06) 0%,
+          rgba(43, 32, 23, .12) 35%,
+          rgba(43, 32, 23, .68) 100%
         );
+
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
+
       width: 100%;
+
       padding: 26px;
+
       color: white;
     }
 
@@ -336,159 +478,233 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
-      padding: 10px 15px;
+
+      margin-bottom: 13px;
+
+      padding: 9px 14px;
+
       border-radius: 999px;
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.20);
+
+      background: rgba(70, 48, 31, .28);
+
+      border: 1px solid rgba(255,255,255,.18);
+
       backdrop-filter: blur(10px);
-      font-size: 13px;
+
+      font-size: 12px;
       font-weight: 700;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12);
     }
 
     .hero h2 {
       margin: 0;
+
       max-width: 760px;
-      font-size: clamp(38px, 7vw, 76px);
+
+      font-size: clamp(39px, 7vw, 76px);
       line-height: .96;
+
       letter-spacing: -2px;
-      text-shadow: 0 4px 25px rgba(0,0,0,.22);
+
+      text-shadow:
+        0 4px 20px rgba(0,0,0,.28);
     }
 
     .hero-sub {
-      max-width: 720px;
-      margin-top: 14px;
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(255,255,255,.96);
-      text-shadow: 0 2px 14px rgba(0,0,0,.22);
+      max-width: 700px;
+
+      margin-top: 13px;
+
+      color: rgba(255,255,255,.95);
+
+      font-size: 16px;
+      line-height: 1.65;
+
+      text-shadow:
+        0 2px 12px rgba(0,0,0,.28);
     }
 
     .hero-actions {
-      margin-top: 20px;
+      margin-top: 18px;
+
       display: flex;
-      gap: 10px;
+      gap: 9px;
       flex-wrap: wrap;
     }
 
     .hero-btn {
-      border: 0;
-      border-radius: 999px;
-      padding: 13px 18px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 800;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,.18);
+
+      padding: 12px 16px;
+
+      border-radius: 999px;
+      border: 0;
+
+      cursor: pointer;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.18);
     }
 
     .hero-btn.primary {
-      background: white;
-      color: #222;
+      background: #f8eee2;
+      color: #4b392a;
     }
 
     .hero-btn.secondary {
-      background: rgba(255,255,255,.14);
+      background: rgba(62,43,28,.35);
       color: white;
+
       border: 1px solid rgba(255,255,255,.18);
+
       backdrop-filter: blur(10px);
     }
 
+    /* =========================
+       KURZER TEXT
+       ========================= */
+
     .mini-story {
-      margin-top: 14px;
+      margin-top: 10px;
+
       padding: 18px 18px;
-      border-radius: 24px;
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(255,255,255,.85);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+
       text-align: center;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(239, 222, 201, .84),
+          rgba(245, 233, 216, .91)
+        );
+
+      border: 1px solid rgba(92,65,41,.08);
+
+      box-shadow:
+        0 12px 34px rgba(76,52,34,.10);
     }
 
     .mini-story h3 {
-      margin: 0 0 8px;
-      font-size: 24px;
-      letter-spacing: -.5px;
+      margin: 0 0 7px;
+
+      color: var(--brown);
+
+      font-size: 22px;
+      letter-spacing: -.4px;
     }
 
     .mini-story p {
-      max-width: 900px;
+      max-width: 880px;
+
       margin: auto;
-      color: #5d5853;
-      font-size: 15.5px;
-      line-height: 1.75;
+
+      color: #6b5c50;
+
+      font-size: 15px;
+      line-height: 1.65;
     }
 
-    /* =======================
+    /* =========================
        GALERIE
-       ======================= */
+       ========================= */
 
     .gallery-card {
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 28px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.82);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      margin-top: 10px;
+
+      padding: 12px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(239, 224, 206, .75);
+
+      border: 1px solid rgba(88,62,40,.08);
+
+      box-shadow:
+        0 14px 40px rgba(75,52,35,.11);
+
+      backdrop-filter: blur(14px);
     }
 
     .toolbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 14px;
-      padding: 4px 2px 2px;
+
+      gap: 10px;
+
+      margin-bottom: 12px;
+
+      padding: 2px;
     }
 
     .toolbar-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       flex-wrap: wrap;
     }
 
     .toolbar-title {
-      font-size: 21px;
+      color: var(--brown);
+
+      font-size: 20px;
       font-weight: 800;
     }
 
     .count {
-      padding: 8px 12px;
+      padding: 7px 11px;
+
       border-radius: 999px;
-      background: white;
-      font-size: 13px;
+
+      background: rgba(255,248,239,.85);
+
+      color: #6b594a;
+
+      font-size: 12px;
       font-weight: 700;
-      color: #5f5b56;
     }
 
     .hint {
-      color: var(--muted);
-      font-size: 13px;
+      color: #7e6f63;
+
+      font-size: 12px;
     }
 
     .loading {
-      min-height: 220px;
+      min-height: 200px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      color: var(--muted);
+
+      gap: 14px;
+
+      color: #76675a;
     }
 
     .spinner {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
+
       border-radius: 50%;
-      border: 4px solid rgba(0,0,0,.08);
-      border-top-color: var(--accent-dark);
+
+      border:
+        4px solid rgba(92,65,41,.10);
+
+      border-top-color: #8e725a;
+
       animation: spin .8s linear infinite;
     }
 
@@ -498,21 +714,35 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 10px;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(230px, 1fr));
+
+      gap: 8px;
     }
 
     .photo {
       position: relative;
+
       aspect-ratio: 1 / 1;
+
       overflow: hidden;
-      border-radius: 18px;
-      background: #e8e8e8;
+
+      border-radius: 16px;
+
+      background: #d9c8b4;
+
       cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0,0,0,.08);
+
+      box-shadow:
+        0 7px 20px rgba(71,49,33,.10);
+
       opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp .42s ease forwards;
+
+      transform: translateY(12px);
+
+      animation:
+        fadeUp .4s ease forwards;
     }
 
     @keyframes fadeUp {
@@ -525,77 +755,114 @@
     .photo img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       display: block;
-      transition: transform .35s ease;
+
+      transition:
+        transform .32s ease;
     }
 
     .photo:hover img {
-      transform: scale(1.04);
+      transform: scale(1.035);
     }
 
     .photo::after {
       content: "";
+
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 48%, rgba(0,0,0,.16) 100%);
+
       pointer-events: none;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0) 52%,
+          rgba(44,30,20,.20) 100%
+        );
     }
 
     .photo-download {
       position: absolute;
-      right: 10px;
-      bottom: 10px;
+
+      right: 8px;
+      bottom: 8px;
+
       z-index: 2;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+
+      width: 41px;
+      height: 41px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,.94);
-      color: #222;
+
+      border-radius: 50%;
+
+      background: rgba(248,238,225,.95);
+
+      color: #4e3b2c;
+
       text-decoration: none;
-      font-size: 18px;
+
+      font-size: 17px;
       font-weight: 800;
-      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+
+      box-shadow:
+        0 5px 16px rgba(55,38,25,.18);
     }
 
     .error {
-      padding: 40px 20px;
+      padding: 35px 18px;
+
       text-align: center;
-      background: white;
-      border-radius: 20px;
+
+      border-radius: 18px;
+
+      background: #f7ecdf;
+
+      color: #65574b;
     }
 
-    /* =======================
+    /* =========================
        FOOTER
-       ======================= */
+       ========================= */
 
     .footer {
-      padding: 28px 18px calc(35px + env(safe-area-inset-bottom));
+      padding:
+        26px 18px
+        calc(32px + env(safe-area-inset-bottom));
+
       text-align: center;
-      color: #88837d;
+
+      color: #77695e;
+
       font-size: 13px;
     }
 
     .footer strong {
-      color: #65605a;
+      color: #554234;
     }
 
-    /* =======================
+    /* =========================
        LIGHTBOX
-       ======================= */
+       ========================= */
 
     .lightbox {
       position: fixed;
       inset: 0;
+
       z-index: 9999;
+
       display: none;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background: rgba(8,8,10,.96);
+
+      background:
+        rgba(28, 20, 15, .97);
     }
 
     .lightbox.active {
@@ -605,36 +872,57 @@
     .light-image {
       max-width: 94vw;
       max-height: 74vh;
+
       object-fit: contain;
-      border-radius: 18px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.4);
     }
 
     .close {
       position: fixed;
-      top: calc(14px + env(safe-area-inset-top));
+
+      top:
+        calc(14px + env(safe-area-inset-top));
+
       right: 14px;
+
       width: 48px;
       height: 48px;
+
       border: 0;
       border-radius: 50%;
-      background: rgba(255,255,255,.15);
+
+      background: rgba(255,255,255,.13);
+
       color: white;
+
       font-size: 28px;
+
       cursor: pointer;
     }
 
     .arrow {
       position: fixed;
+
       top: 50%;
+
       transform: translateY(-50%);
+
       width: 52px;
       height: 70px;
+
       border: 0;
       border-radius: 17px;
-      background: rgba(255,255,255,.13);
+
+      background: rgba(255,255,255,.11);
+
       color: white;
+
       font-size: 34px;
+
       cursor: pointer;
     }
 
@@ -642,103 +930,269 @@
     .right { right: 14px; }
 
     .light-bottom {
-      margin-top: 18px;
+      margin-top: 17px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 11px;
+
+      gap: 10px;
     }
 
     .counter {
-      color: rgba(255,255,255,.76);
+      color: rgba(255,255,255,.72);
+
       font-size: 13px;
       font-weight: 700;
     }
 
     .download-btn {
-      padding: 14px 22px;
+      padding: 13px 20px;
+
       border-radius: 999px;
-      background: white;
-      color: #222;
+
+      background: #f5e8d8;
+
+      color: #49372a;
+
       text-decoration: none;
+
       font-weight: 800;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+
+      box-shadow:
+        0 10px 28px rgba(0,0,0,.26);
     }
 
+    /* =========================
+       MOBILE
+       ========================= */
+
     @media (max-width: 780px) {
+
+      .start-screen {
+        align-items: flex-start;
+        justify-content: center;
+
+        padding:
+          calc(12px + env(safe-area-inset-top))
+          10px
+          calc(18px + env(safe-area-inset-bottom));
+      }
+
       .start-card {
-        padding: 28px 17px;
-        border-radius: 28px;
-      }
+        margin-top: 0;
+        margin-bottom: 10px;
 
-      .notice {
-        padding: 17px 15px;
-      }
+        padding: 22px 15px 20px;
 
-      .page {
-        width: calc(100% - 12px);
-      }
-
-      .hero-photo {
-        min-height: 68vh;
         border-radius: 24px;
       }
 
+      .start-kicker {
+        margin-bottom: 11px;
+        padding: 7px 11px;
+        font-size: 11px;
+      }
+
+      .start-number {
+        width: 68px;
+        height: 68px;
+
+        margin-bottom: 12px;
+
+        font-size: 31px;
+      }
+
+      .start-card h1 {
+        font-size: 36px;
+        letter-spacing: -1.2px;
+      }
+
+      .start-intro {
+        margin-top: 11px;
+
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .notice {
+        margin-top: 15px;
+
+        padding: 14px 13px;
+
+        border-radius: 17px;
+      }
+
+      .notice-title {
+        margin-bottom: 8px;
+
+        font-size: 14px;
+      }
+
+      .notice p {
+        font-size: 12.5px;
+        line-height: 1.48;
+      }
+
+      .name-box {
+        margin-top: 13px;
+      }
+
+      .name-box input {
+        padding: 12px 13px;
+        font-size: 16px;
+      }
+
+      .privacy-note {
+        font-size: 10px;
+      }
+
+      .thanks {
+        margin-top: 12px;
+
+        font-size: 13px;
+      }
+
+      .enter-btn {
+        margin-top: 14px;
+
+        padding: 14px 15px;
+
+        font-size: 13px;
+      }
+
+      .page {
+        width: calc(100% - 10px);
+      }
+
+      .hero {
+        padding-top:
+          calc(5px + env(safe-area-inset-top));
+      }
+
+      .hero-photo {
+        min-height: 62vh;
+
+        border-radius: 20px;
+      }
+
       .hero-content {
-        padding: 18px;
+        padding: 17px 15px;
+      }
+
+      .hero-badge {
+        margin-bottom: 10px;
+
+        padding: 7px 11px;
+
+        font-size: 11px;
+      }
+
+      .hero h2 {
+        font-size: 41px;
       }
 
       .hero-sub {
-        font-size: 15px;
+        margin-top: 10px;
+
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .hero-actions {
+        margin-top: 14px;
+      }
+
+      .hero-btn {
+        padding: 11px 14px;
+        font-size: 12px;
       }
 
       .mini-story {
-        padding: 16px 14px;
-        border-radius: 20px;
+        margin-top: 7px;
+
+        padding: 14px 12px;
+
+        border-radius: 17px;
       }
 
       .mini-story h3 {
-        font-size: 21px;
+        font-size: 19px;
+      }
+
+      .mini-story p {
+        font-size: 13.5px;
+        line-height: 1.55;
       }
 
       .gallery-card {
-        padding: 8px;
-        border-radius: 20px;
+        margin-top: 7px;
+
+        padding: 7px;
+
+        border-radius: 17px;
+      }
+
+      .toolbar {
+        padding: 3px 3px 1px;
+        margin-bottom: 9px;
+      }
+
+      .toolbar-title {
+        font-size: 18px;
+      }
+
+      .hint {
+        display: none;
       }
 
       .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 5px;
       }
 
       .photo {
-        border-radius: 12px;
+        border-radius: 10px;
       }
 
       .photo-download {
-        width: 38px;
-        height: 38px;
-        right: 7px;
-        bottom: 7px;
+        width: 36px;
+        height: 36px;
+
+        right: 6px;
+        bottom: 6px;
+
+        font-size: 15px;
       }
 
       .light-image {
         max-width: 100vw;
-        max-height: 69vh;
-        border-radius: 12px;
+        max-height: 68vh;
+
+        border-radius: 10px;
       }
 
       .arrow {
         top: auto;
-        bottom: calc(90px + env(safe-area-inset-bottom));
+
+        bottom:
+          calc(
+            88px +
+            env(safe-area-inset-bottom)
+          );
+
         transform: none;
-        width: 50px;
-        height: 50px;
+
+        width: 49px;
+        height: 49px;
+
         border-radius: 50%;
       }
 
-      .left { left: 18px; }
-      .right { right: 18px; }
+      .left { left: 17px; }
+      .right { right: 17px; }
     }
   </style>
 </head>
@@ -757,19 +1211,33 @@
 
   <!-- STARTSCREEN -->
   <div id="startScreen" class="start-screen">
+
     <div class="start-card">
 
-      <div class="start-number">1</div>
+      <div class="start-kicker">
+        🎈 Ein besonderer Tag
+      </div>
 
-      <h1>Samaels<br>1. Geburtstag</h1>
+      <div class="start-number">
+        1
+      </div>
+
+      <h1>
+        Samaels<br>
+        1. Geburtstag
+      </h1>
 
       <div class="start-intro">
-        Ein ganz besonderer Tag und wunderschöne Erinnerungen,
-        die wir gerne mit euch teilen möchten. 🤍
+        Schön, dass ihr da seid. 🤎
+        <br>
+        Wir möchten diese besonderen Erinnerungen gerne mit euch teilen.
       </div>
 
       <div class="notice">
-        <div class="notice-title">🔒 Bitte respektiert unseren Wunsch</div>
+
+        <div class="notice-title">
+          🔒 Bitte respektiert unseren Wunsch
+        </div>
 
         <p>
           Die Fotos auf dieser Seite sind ausschließlich für den
@@ -796,10 +1264,14 @@
           Mit dem Öffnen der Galerie bestätigt ihr,
           diesen Hinweis gelesen zu haben und unseren Wunsch zu respektieren.
         </p>
+
       </div>
 
       <div class="name-box">
-        <label for="guestName">Dein Name</label>
+
+        <label for="guestName">
+          Dein Name
+        </label>
 
         <input
           id="guestName"
@@ -812,77 +1284,135 @@
           Dein Name und der Zeitpunkt der Bestätigung werden ausschließlich gespeichert,
           um die Zustimmung zu diesem Fotohinweis zu dokumentieren.
         </div>
+
       </div>
 
       <div class="thanks">
-        Vielen Dank, dass ihr sorgsam mit diesen persönlichen Erinnerungen umgeht. ❤️
-        <span class="names">Alina & Michael</span>
+        Danke, dass ihr sorgsam mit diesen persönlichen Erinnerungen umgeht. ❤️
+        <span class="names">
+          Alina & Michael
+        </span>
       </div>
 
-      <button id="enterBtn" class="enter-btn">
+      <button
+        id="enterBtn"
+        class="enter-btn">
         ✓ Hinweis gelesen – Erinnerungen ansehen ❤️
       </button>
 
-      <div id="nameError" class="name-error"></div>
+      <div
+        id="nameError"
+        class="name-error">
+      </div>
+
     </div>
+
   </div>
 
-  <!-- MAIN -->
+  <!-- HAUPTSEITE -->
   <div class="page">
 
     <section class="hero">
-      <div id="heroPhoto" class="hero-photo">
+
+      <div
+        id="heroPhoto"
+        class="hero-photo">
+
         <div class="hero-content">
 
-          <div class="hero-badge">🎈 Samaels 1. Geburtstag</div>
+          <div class="hero-badge">
+            🎈 Samaels 1. Geburtstag
+          </div>
 
-          <h2>Samaels 1.<br>Geburtstag</h2>
+          <h2>
+            365 Tage<br>
+            voller Liebe
+          </h2>
 
           <div class="hero-sub">
-            365 Tage voller Liebe, Lachen, kleiner Abenteuer
-            und unvergesslicher Erinnerungen. ❤️
+            Ein Jahr voller Lachen, kleiner Abenteuer und großer Gefühle.
+            Danke, dass ihr diesen besonderen Tag mit uns gefeiert habt. ❤️
           </div>
 
           <div class="hero-actions">
-            <button id="musicBtn" class="hero-btn primary">🎵 Musik abspielen</button>
+
+            <button
+              id="musicBtn"
+              class="hero-btn primary">
+              🎵 Musik abspielen
+            </button>
 
             <a
               class="hero-btn secondary"
               href="#galerie">
               ↓ Fotos entdecken
             </a>
+
           </div>
 
         </div>
+
       </div>
+
     </section>
 
     <section class="mini-story">
-      <h3>365 Tage voller Liebe</h3>
+
+      <h3>
+        Ein Jahr, das alles verändert hat
+      </h3>
+
       <p>
         Vor einem Jahr hat Samael unsere Welt auf die schönste Art verändert.
-        Seitdem gab es unzählige erste Male, kleine Fortschritte, große Überraschungen
-        und Momente, die man am liebsten für immer festhalten möchte.
-        Umso schöner war es, diesen ersten Geburtstag gemeinsam mit euch feiern zu dürfen.
+        So viele erste Male, kleine Fortschritte und besondere Momente,
+        die wir am liebsten für immer festhalten würden.
       </p>
+
     </section>
 
-    <section id="galerie" class="gallery-card">
+    <section
+      id="galerie"
+      class="gallery-card">
+
       <div class="toolbar">
+
         <div class="toolbar-left">
-          <div class="toolbar-title">Unsere schönsten Momente</div>
-          <div id="count" class="count">Fotos werden geladen …</div>
+
+          <div class="toolbar-title">
+            Unsere schönsten Momente
+          </div>
+
+          <div
+            id="count"
+            class="count">
+            Fotos werden geladen …
+          </div>
+
         </div>
 
-        <div class="hint">Foto antippen zum Vergrößern</div>
+        <div class="hint">
+          Foto antippen zum Vergrößern
+        </div>
+
       </div>
 
-      <div id="loading" class="loading">
+      <div
+        id="loading"
+        class="loading">
+
         <div class="spinner"></div>
-        <div>Galerie wird geladen …</div>
+
+        <div>
+          Galerie wird geladen …
+        </div>
+
       </div>
 
-      <div id="gallery" class="gallery"></div>
+      <div
+        id="gallery"
+        class="gallery">
+      </div>
+
     </section>
 
     <div class="footer">
@@ -890,13 +1420,31 @@
       <br><br>
       <strong>Alina & Michael</strong>
     </div>
+
   </div>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox">
-    <button class="close" onclick="closeLightbox()">×</button>
-    <button class="arrow left" onclick="previousPhoto()">‹</button>
-    <button class="arrow right" onclick="nextPhoto()">›</button>
+  <div
+    id="lightbox"
+    class="lightbox">
+
+    <button
+      class="close"
+      onclick="closeLightbox()">
+      ×
+    </button>
+
+    <button
+      class="arrow left"
+      onclick="previousPhoto()">
+      ‹
+    </button>
+
+    <button
+      class="arrow right"
+      onclick="nextPhoto()">
+      ›
+    </button>
 
     <img
       id="lightImage"
@@ -904,7 +1452,11 @@
       alt="Samaels 1. Geburtstag">
 
     <div class="light-bottom">
-      <div id="photoCounter" class="counter"></div>
+
+      <div
+        id="photoCounter"
+        class="counter">
+      </div>
 
       <a
         id="downloadButton"
@@ -914,278 +1466,624 @@
         rel="noopener">
         ↓ Foto herunterladen
       </a>
+
     </div>
+
   </div>
 
   <script>
+
     const SCRIPT_BASE_URL =
       'https://script.google.com/a/macros/bsb3100.at/s/AKfycbyjZ3nhws9i3m61IWaA0_AZvt3rlhAoI7gwPBxKi1LeTVx0t-3adoTVX07NHOGZwog/exec';
 
-    const PHOTO_API = SCRIPT_BASE_URL + '?api=photos';
+    const PHOTO_API =
+      SCRIPT_BASE_URL +
+      '?api=photos';
 
     let photos = [];
     let galleryPhotos = [];
     let titlePhoto = null;
+
     let currentIndex = 0;
     let touchStartX = 0;
     let musicPlaying = false;
 
-    const music = document.getElementById('music');
-    const musicBtn = document.getElementById('musicBtn');
-    const enterBtn = document.getElementById('enterBtn');
-    const startScreen = document.getElementById('startScreen');
-    const heroPhotoEl = document.getElementById('heroPhoto');
+    const music =
+      document.getElementById('music');
+
+    const musicBtn =
+      document.getElementById('musicBtn');
+
+    const enterBtn =
+      document.getElementById('enterBtn');
+
+    const startScreen =
+      document.getElementById('startScreen');
+
+    const heroPhotoEl =
+      document.getElementById('heroPhoto');
+
 
     function normalizeFileName(name) {
+
       return String(name || '')
         .trim()
         .toLowerCase()
         .replace(/\.[^.]+$/, '');
+
     }
 
+
     function getSessionId() {
-      let id = sessionStorage.getItem('samaelConsentSession');
+
+      let id =
+        sessionStorage.getItem(
+          'samaelConsentSession'
+        );
 
       if (!id) {
-        if (window.crypto && crypto.randomUUID) {
-          id = crypto.randomUUID();
+
+        if (
+          window.crypto &&
+          crypto.randomUUID
+        ) {
+
+          id =
+            crypto.randomUUID();
+
         } else {
-          id = Date.now().toString(36) + Math.random().toString(36).substring(2);
+
+          id =
+            Date.now().toString(36) +
+            Math.random()
+              .toString(36)
+              .substring(2);
+
         }
 
-        sessionStorage.setItem('samaelConsentSession', id);
+        sessionStorage.setItem(
+          'samaelConsentSession',
+          id
+        );
       }
 
       return id;
     }
 
+
     function logConsent(guestName) {
-      const sessionId = getSessionId();
+
+      const sessionId =
+        getSessionId();
 
       const url =
         SCRIPT_BASE_URL +
         '?api=consent' +
-        '&sid=' + encodeURIComponent(sessionId) +
-        '&name=' + encodeURIComponent(guestName) +
-        '&_=' + Date.now();
+        '&sid=' +
+        encodeURIComponent(sessionId) +
+        '&name=' +
+        encodeURIComponent(guestName) +
+        '&_=' +
+        Date.now();
 
-      fetch(url, {
-        method: 'GET',
-        mode: 'no-cors',
-        cache: 'no-store'
-      }).catch(error =>
-        console.warn('Zustimmung konnte nicht protokolliert werden:', error)
+      fetch(
+        url,
+        {
+          method: 'GET',
+          mode: 'no-cors',
+          cache: 'no-store'
+        }
+      )
+      .catch(
+        error =>
+          console.warn(
+            'Zustimmung konnte nicht protokolliert werden:',
+            error
+          )
       );
     }
 
-    enterBtn.addEventListener('click', async function() {
-      const nameInput = document.getElementById('guestName');
-      const nameError = document.getElementById('nameError');
-      const guestName = nameInput.value.trim();
 
-      if (guestName.length < 2) {
-        nameError.textContent = 'Bitte gib deinen Namen ein.';
-        nameInput.focus();
-        return;
-      }
+    enterBtn.addEventListener(
+      'click',
+      async function() {
 
-      nameError.textContent = '';
-      logConsent(guestName);
+        const nameInput =
+          document.getElementById('guestName');
 
-      startScreen.classList.add('hide');
-      document.body.classList.remove('locked');
+        const nameError =
+          document.getElementById('nameError');
 
-      try {
-        await music.play();
-        musicPlaying = true;
-        musicBtn.textContent = '⏸️ Musik pausieren';
-      } catch (error) {
-        musicBtn.textContent = '🎵 Musik abspielen';
-      }
-    });
+        const guestName =
+          nameInput.value.trim();
 
-    musicBtn.addEventListener('click', async function() {
-      if (!musicPlaying) {
-        try {
-          await music.play();
-          musicPlaying = true;
-          musicBtn.textContent = '⏸️ Musik pausieren';
-        } catch (error) {
-          console.error(error);
+        if (
+          guestName.length < 2
+        ) {
+
+          nameError.textContent =
+            'Bitte gib deinen Namen ein.';
+
+          nameInput.focus();
+
+          return;
         }
-      } else {
-        music.pause();
-        musicPlaying = false;
-        musicBtn.textContent = '🎵 Musik abspielen';
+
+        nameError.textContent = '';
+
+        logConsent(
+          guestName
+        );
+
+        startScreen
+          .classList
+          .add('hide');
+
+        document.body
+          .classList
+          .remove('locked');
+
+        try {
+
+          await music.play();
+
+          musicPlaying = true;
+
+          musicBtn.textContent =
+            '⏸️ Musik pausieren';
+
+        } catch (error) {
+
+          musicBtn.textContent =
+            '🎵 Musik abspielen';
+
+        }
+
       }
-    });
+    );
+
+
+    musicBtn.addEventListener(
+      'click',
+      async function() {
+
+        if (!musicPlaying) {
+
+          try {
+
+            await music.play();
+
+            musicPlaying = true;
+
+            musicBtn.textContent =
+              '⏸️ Musik pausieren';
+
+          } catch (error) {
+
+            console.error(error);
+
+          }
+
+        } else {
+
+          music.pause();
+
+          musicPlaying = false;
+
+          musicBtn.textContent =
+            '🎵 Musik abspielen';
+
+        }
+
+      }
+    );
+
 
     function setHeroTitleImage(photo) {
+
       if (!photo) return;
 
       heroPhotoEl.style.backgroundImage =
-        'linear-gradient(180deg, rgba(0,0,0,.24), rgba(0,0,0,.46)), url("' + photo.full + '")';
+        'linear-gradient(180deg, rgba(40,28,19,.04), rgba(40,28,19,.50)), url("' +
+        photo.full +
+        '")';
     }
 
+
     async function loadPhotos() {
+
       try {
-        const response = await fetch(PHOTO_API, { cache: 'no-store' });
+
+        const response =
+          await fetch(
+            PHOTO_API,
+            {
+              cache: 'no-store'
+            }
+          );
 
         if (!response.ok) {
-          throw new Error('HTTP ' + response.status);
+
+          throw new Error(
+            'HTTP ' +
+            response.status
+          );
+
         }
 
-        photos = await response.json();
+        photos =
+          await response.json();
 
         if (!photos.length) {
+
           renderNoPhotos();
+
           return;
         }
 
         titlePhoto =
-          photos.find(photo => normalizeFileName(photo.name) === 'titelbild') ||
+          photos.find(
+            photo =>
+              normalizeFileName(
+                photo.name
+              ) === 'titelbild'
+          ) ||
           photos[0];
 
-        setHeroTitleImage(titlePhoto);
+        setHeroTitleImage(
+          titlePhoto
+        );
 
-        galleryPhotos = photos.filter(photo => photo.id !== titlePhoto.id);
+        galleryPhotos =
+          photos.filter(
+            photo =>
+              photo.id !==
+              titlePhoto.id
+          );
 
-        if (!galleryPhotos.length) {
-          galleryPhotos = [titlePhoto];
+        if (
+          !galleryPhotos.length
+        ) {
+
+          galleryPhotos =
+            [titlePhoto];
+
         }
 
         renderPhotos();
 
       } catch (error) {
+
         console.error(error);
 
-        document.getElementById('loading').innerHTML = `
+        document
+          .getElementById('loading')
+          .innerHTML = `
+            <div class="error">
+              <strong>
+                Die Fotos konnten leider nicht geladen werden.
+              </strong>
+              <br><br>
+              Bitte versucht es später noch einmal.
+            </div>
+          `;
+
+        document
+          .getElementById('count')
+          .textContent =
+          'Fehler beim Laden';
+      }
+    }
+
+
+    function renderNoPhotos() {
+
+      document
+        .getElementById('loading')
+        .style
+        .display =
+        'none';
+
+      document
+        .getElementById('gallery')
+        .innerHTML = `
           <div class="error">
-            <strong>Die Fotos konnten leider nicht geladen werden.</strong>
-            <br><br>
-            Bitte versucht es später noch einmal.
+            Momentan sind noch keine Fotos verfügbar.
           </div>
         `;
 
-        document.getElementById('count').textContent = 'Fehler beim Laden';
-      }
+      document
+        .getElementById('count')
+        .textContent =
+        '0 Fotos';
     }
 
-    function renderNoPhotos() {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('gallery').innerHTML = `
-        <div class="error">
-          Momentan sind noch keine Fotos verfügbar.
-        </div>
-      `;
-      document.getElementById('count').textContent = '0 Fotos';
-    }
 
     function renderPhotos() {
-      const gallery = document.getElementById('gallery');
-      const loading = document.getElementById('loading');
 
-      loading.style.display = 'none';
-      gallery.innerHTML = '';
+      const gallery =
+        document.getElementById('gallery');
 
-      document.getElementById('count').textContent =
-        galleryPhotos.length + (galleryPhotos.length === 1 ? ' Foto' : ' Fotos');
+      const loading =
+        document.getElementById('loading');
 
-      galleryPhotos.forEach(function(photo, index) {
-        const item = document.createElement('div');
-        item.className = 'photo';
-        item.style.animationDelay = (index * 0.02) + 's';
+      loading.style.display =
+        'none';
 
-        const img = document.createElement('img');
-        img.src = photo.thumb;
-        img.alt = photo.name || 'Samaels 1. Geburtstag';
-        img.loading = 'lazy';
+      gallery.innerHTML =
+        '';
 
-        img.addEventListener('click', function() {
-          openLightbox(index);
-        });
+      document
+        .getElementById('count')
+        .textContent =
+        galleryPhotos.length +
+        (
+          galleryPhotos.length === 1
+            ? ' Foto'
+            : ' Fotos'
+        );
 
-        const download = document.createElement('a');
-        download.className = 'photo-download';
-        download.href = photo.download;
-        download.target = '_blank';
-        download.rel = 'noopener';
-        download.innerHTML = '↓';
-        download.title = 'Foto herunterladen';
+      galleryPhotos.forEach(
+        function(photo, index) {
 
-        download.addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
+          const item =
+            document.createElement('div');
 
-        item.appendChild(img);
-        item.appendChild(download);
-        gallery.appendChild(item);
-      });
+          item.className =
+            'photo';
+
+          item.style.animationDelay =
+            (index * 0.02) +
+            's';
+
+          const img =
+            document.createElement('img');
+
+          img.src =
+            photo.thumb;
+
+          img.alt =
+            photo.name ||
+            'Samaels 1. Geburtstag';
+
+          img.loading =
+            'lazy';
+
+          img.addEventListener(
+            'click',
+            function() {
+
+              openLightbox(
+                index
+              );
+
+            }
+          );
+
+          const download =
+            document.createElement('a');
+
+          download.className =
+            'photo-download';
+
+          download.href =
+            photo.download;
+
+          download.target =
+            '_blank';
+
+          download.rel =
+            'noopener';
+
+          download.innerHTML =
+            '↓';
+
+          download.title =
+            'Foto herunterladen';
+
+          download.addEventListener(
+            'click',
+            function(event) {
+
+              event.stopPropagation();
+
+            }
+          );
+
+          item.appendChild(
+            img
+          );
+
+          item.appendChild(
+            download
+          );
+
+          gallery.appendChild(
+            item
+          );
+
+        }
+      );
     }
+
 
     function openLightbox(index) {
-      currentIndex = index;
+
+      currentIndex =
+        index;
+
       updateLightbox();
 
-      document.getElementById('lightbox').classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document
+        .getElementById('lightbox')
+        .classList
+        .add('active');
+
+      document.body.style.overflow =
+        'hidden';
     }
+
 
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
+
+      document
+        .getElementById('lightbox')
+        .classList
+        .remove('active');
+
+      document.body.style.overflow =
+        '';
     }
+
 
     function updateLightbox() {
-      const photo = galleryPhotos[currentIndex];
+
+      const photo =
+        galleryPhotos[
+          currentIndex
+        ];
+
       if (!photo) return;
 
-      document.getElementById('lightImage').src = photo.full;
-      document.getElementById('downloadButton').href = photo.download;
-      document.getElementById('photoCounter').textContent =
-        (currentIndex + 1) + ' / ' + galleryPhotos.length;
+      document
+        .getElementById('lightImage')
+        .src =
+        photo.full;
+
+      document
+        .getElementById('downloadButton')
+        .href =
+        photo.download;
+
+      document
+        .getElementById('photoCounter')
+        .textContent =
+        (currentIndex + 1) +
+        ' / ' +
+        galleryPhotos.length;
     }
+
 
     function nextPhoto() {
-      currentIndex = (currentIndex + 1) % galleryPhotos.length;
+
+      currentIndex =
+        (
+          currentIndex +
+          1
+        ) %
+        galleryPhotos.length;
+
       updateLightbox();
     }
+
 
     function previousPhoto() {
-      currentIndex = (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+
+      currentIndex =
+        (
+          currentIndex -
+          1 +
+          galleryPhotos.length
+        ) %
+        galleryPhotos.length;
+
       updateLightbox();
     }
 
-    document.addEventListener('keydown', function(event) {
-      const box = document.getElementById('lightbox');
 
-      if (!box.classList.contains('active')) return;
+    document.addEventListener(
+      'keydown',
+      function(event) {
 
-      if (event.key === 'Escape') closeLightbox();
-      if (event.key === 'ArrowRight') nextPhoto();
-      if (event.key === 'ArrowLeft') previousPhoto();
-    });
+        const box =
+          document.getElementById('lightbox');
 
-    const lightbox = document.getElementById('lightbox');
+        if (
+          !box.classList.contains(
+            'active'
+          )
+        ) {
+          return;
+        }
 
-    lightbox.addEventListener('touchstart', function(event) {
-      touchStartX = event.changedTouches[0].screenX;
-    }, { passive: true });
+        if (
+          event.key === 'Escape'
+        ) {
+          closeLightbox();
+        }
 
-    lightbox.addEventListener('touchend', function(event) {
-      const touchEndX = event.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
+        if (
+          event.key === 'ArrowRight'
+        ) {
+          nextPhoto();
+        }
 
-      if (Math.abs(diff) < 50) return;
+        if (
+          event.key === 'ArrowLeft'
+        ) {
+          previousPhoto();
+        }
 
-      if (diff > 0) {
-        nextPhoto();
-      } else {
-        previousPhoto();
       }
-    }, { passive: true });
+    );
+
+
+    const lightbox =
+      document.getElementById('lightbox');
+
+
+    lightbox.addEventListener(
+      'touchstart',
+      function(event) {
+
+        touchStartX =
+          event
+            .changedTouches[0]
+            .screenX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    lightbox.addEventListener(
+      'touchend',
+      function(event) {
+
+        const touchEndX =
+          event
+            .changedTouches[0]
+            .screenX;
+
+        const diff =
+          touchStartX -
+          touchEndX;
+
+        if (
+          Math.abs(diff) < 50
+        ) {
+          return;
+        }
+
+        if (
+          diff > 0
+        ) {
+          nextPhoto();
+        } else {
+          previousPhoto();
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
 
     loadPhotos();
+
   </script>
 
 </body>
